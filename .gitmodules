@@ -1,3 +1,6 @@
 [submodule "Anki-Android"]
 	path = Anki-Android
 	url = https://github.com/sosegon/Anki-Android
+[submodule "2048-android"]
+	path = 2048-android
+	url = https://github.com/sosegon/2048-android
