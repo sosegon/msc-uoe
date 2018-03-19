@@ -1,4 +1,9 @@
 # Progress log
+## Week 19-03-2018 | 25-03-2018
+- I need to read the references I have found to decide how to evaluate the project. At a glance, I think two references will provide some clues to evaluate the project.
+- Right now, I am confussed about how to evaluate the project. Originally, the project should evaluate the engagement of the users. But what does exactly that mean? A user can be engaged with the application, but not really taking advantage of the spaced repetition feature.
+- Hopefully, after reading the references I will make a proper decision about the evaluation and provide enough reasons about it.
+
 ## Week 12-03-2018 | 18-03-2018
 - I have selected the open source game I will use to integrate AnkiAndroid with. The game is the popular **2048**.
 - I chose this game because is simple, kind of addictive (I have spent several hours trying to win the game), and it has way more users compared to other open source games.
