@@ -61,3 +61,7 @@ Users can also set the level to start.
 **Morrison, B. B., & DiSalvo, B. (2014, March). Khan academy gamifies computer science. In Proceedings of the 45th ACM technical symposium on Computer science education (pp. 39-44). ACM.**
 
 This paper talks about the gamification of Khan academy. The important part here is the gamification scheme used by this organization: Badges, energy points, goals, progress indicators. 
+
+**O'Brien, H. L., & Toms, E. G. (2010). The development and evaluation of a survey to measure user engagement. Journal of the Association for Information Science and Technology, 61(1), 50-69.**
+
+This paper presents a framework to evaluate user engagement
