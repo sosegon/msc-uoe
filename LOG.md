@@ -1,11 +1,17 @@
 # Progress log
+
+## Week 26-03-2018 | 01-04-2018
+- I have decided the way to evaluate the project. I am going to use a control group that will not have spaced repetition enabled and an experimental group with the gamification feature available. I will evaluate by comparing the results of a final assessment to the participants from both groups. The hypothesis is that participants in the experiment group will perform better than those in the control group. In addition, I will also compare other statistics like the time using the application.
+
+- During this week I will work on two things. First, I will write the IPP report so the tutors can read it and provide some feedback. I also will play with the source code of the application to try to understand how it is implemented and how it can be integrated with the game.
+
 ## Week 19-03-2018 | 25-03-2018
 - I need to read the references I have found to decide how to evaluate the project. At a glance, I think two references will provide some clues to evaluate the project.
 - Right now, I am confussed about how to evaluate the project. Originally, the project should evaluate the engagement of the users. But what does exactly that mean? A user can be engaged with the application, but not really taking advantage of the spaced repetition feature.
 - Hopefully, after reading the references I will make a proper decision about the evaluation and provide enough reasons about it.
 - I have to compile the Anki Android and the game application (even though I am still not sure if I will use this game for sure).
 - Find some literature about rewarding and engagement related to people using software.
-
+s
 
 ## Week 12-03-2018 | 18-03-2018
 - I have selected the open source game I will use to integrate AnkiAndroid with. The game is the popular **2048**.
