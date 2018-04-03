@@ -1,4 +1,6 @@
 # Progress log
+## Week 02-04-2018 | 08-04-2018
+- Due to duties from other courses, I was not able to finish the report and play with the code of the applications. I will finish the report for feedback by the mid-week. Then, I will be able to play with the code. At a glance, the game does not seem complicated. I have no idea about AnkiDroid.
 
 ## Week 26-03-2018 | 01-04-2018
 - I have decided the way to evaluate the project. I am going to use a control group that will not have spaced repetition enabled and an experimental group with the gamification feature available. I will evaluate by comparing the results of a final assessment to the participants from both groups. The hypothesis is that participants in the experiment group will perform better than those in the control group. In addition, I will also compare other statistics like the time using the application.
