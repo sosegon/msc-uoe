@@ -1,2 +1,4 @@
 Name, email, group
-Mengzhu cai, s1734032@sms.ed.ac.uk, experimental
+Mengzhu Cai, s1734032@sms.ed.ac.uk, experimental
+Arturo Polanco, apolanco3225@gmail.com, experimental
+Youssef Al Hariri, s1723488@sms.ed.ac.uk, experimental
