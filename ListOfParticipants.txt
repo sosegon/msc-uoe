@@ -2,3 +2,4 @@ Name, email, group
 Mengzhu Cai, s1734032@sms.ed.ac.uk, experimental
 Arturo Polanco, apolanco3225@gmail.com, experimental
 Youssef Al Hariri, s1723488@sms.ed.ac.uk, experimental
+Pritam Hinger, hinger.pritam@gmail.com, experimental
