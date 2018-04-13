@@ -4,3 +4,6 @@
 [submodule "2048-android"]
 	path = 2048-android
 	url = https://github.com/sosegon/2048-android
+[submodule "AnkiGame/app/src/main/assets/2048"]
+	path = AnkiGame/app/src/main/assets/2048
+	url = https://github.com/sosegon/2048
