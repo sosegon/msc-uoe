@@ -13,11 +13,7 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
 
-    @BindView(R.id.tb)
-    Toolbar tb;
-
-    @BindView(android.R.id.tabhost)
-    FragmentTabHost tabHost;
+    private static final String GAMEFRAGMENT_TAG = "GF_TAG";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +24,9 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //setSupportActionBar(tb);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frl_container, new MainFragment(), GAMEFRAGMENT_TAG)
+                .commit();
 
-        tabHost.setup(this, getSupportFragmentManager(), android.R.id.tabcontent);
-
-        tabHost.addTab(
-                tabHost.newTabSpec("main").setIndicator(getString(R.string.lbl_main), null),
-                MainFragment.class, savedInstanceState
-        );
-
-        tabHost.addTab(
-                tabHost.newTabSpec("palettes").setIndicator(getString(R.string.lbl_list), null),
-                ListFragment.class, savedInstanceState
-        );
     }
 }
