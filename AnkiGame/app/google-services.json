@@ -1,27 +1,27 @@
 {
   "project_info": {
-    "project_number": "720446183832",
-    "firebase_url": "https://android-boilerplate-keemsa.firebaseio.com",
-    "project_id": "android-boilerplate-keemsa",
-    "storage_bucket": "android-boilerplate-keemsa.appspot.com"
+    "project_number": "427007683779",
+    "firebase_url": "https://ankigame2048.firebaseio.com",
+    "project_id": "ankigame2048",
+    "storage_bucket": "ankigame2048.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:720446183832:android:8088f2adbd03ec8b",
+        "mobilesdk_app_id": "1:427007683779:android:bc20445799f27897",
         "android_client_info": {
-          "package_name": "com.keemsa.boilerplate"
+          "package_name": "com.keemsa.ankigame2048"
         }
       },
       "oauth_client": [
         {
-          "client_id": "720446183832-ir281ovjkhnqpksktjil514sj12ehgfq.apps.googleusercontent.com",
+          "client_id": "427007683779-t6v4oaj6jc4hfm4tb347hjeqcl1025qv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyByZ1osJ0sYKE7bSDwG0f5MFY1c8ItvuoU"
+          "current_key": "AIzaSyCjBxQPHy3Q_NWGBZtzbRdinNVRRrabfiw"
         }
       ],
       "services": {

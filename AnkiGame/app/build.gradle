@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.keemsa.boilerplate"
+        applicationId "com.keemsa.ankigame2048"
         minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
@@ -25,7 +25,7 @@ android {
 }
 dependencies {
     final DAGGER_VERSION = '2.5'
-    final FIREBASE_VERSION = '11.0.2'
+    final FIREBASE_VERSION = '12.0.1'
     final BUTTERKNIFE_VERSION = '8.4.0'
     final AUTO_VALUE_VERSION = '1.3'
     final AUTO_VALUE_GSON_VERSION = '0.4.2'

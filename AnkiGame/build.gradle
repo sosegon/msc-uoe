@@ -9,7 +9,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0-alpha10'
-        classpath 'com.google.gms:google-services:3.0.0' // https://stackoverflow.com/a/40085096
+        classpath 'com.google.gms:google-services:3.2.0' // https://stackoverflow.com/a/40085096
 
         ///////////////////////////////////////////////////////////////////
         // NOTE: The google-services.json file has to be the corresponding
