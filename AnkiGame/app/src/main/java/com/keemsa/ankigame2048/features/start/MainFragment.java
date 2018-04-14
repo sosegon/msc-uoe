@@ -139,7 +139,8 @@ public class MainFragment extends BaseFragment implements MainMvpView{
             web_main.restoreState(savedInstanceState);
         } else {
             // Load webview with current Locale language
-            web_main.loadUrl("file:///android_asset/2048/index.html?lang=" + Locale.getDefault().getLanguage());
+            //web_main.loadUrl("file:///android_asset/2048/index.html?lang=" + Locale.getDefault().getLanguage());
+            web_main.loadUrl("file:///android_asset/2048-react/index.html?lang=" + Locale.getDefault().getLanguage());
         }
 
         Toast.makeText(getActivity().getApplication(), "Go full screen", Toast.LENGTH_SHORT).show();
