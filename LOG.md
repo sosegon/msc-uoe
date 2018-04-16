@@ -1,4 +1,7 @@
 # Progress log
+## Week 16-04-2018 | 22-04-2018
+- Previous week I submitted my IPP report. I was able to compile the game and create the skeleton for the development. Morevover, I created the firebase application. This week, I will define the prototypes and will test them with a couple of people. I will also try to set react native for the development of the application since I think it will be easier for integration.
+
 ## Week 09-04-2018 | 15-04-2018
 - Previous week I delivered my draft for the IPP report. The supervisors reviewed it and provided feedback. I will discuss about the feedback in the meeting this week. I am especially interested in the following things:
   - Spliting the introduction in related work and the thing I am going to do.
