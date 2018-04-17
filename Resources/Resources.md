@@ -1,0 +1,11 @@
+- bomb https://www.flaticon.com/free-icon/bomb_750938#term=bomb&page=1&position=25
+- gift https://www.flaticon.com/free-icon/supermarket-gift_372717#term=gift&page=1&position=1
+- forbidden https://www.flaticon.com/free-icon/disabled_259464#term=forbidden&page=1&position=6
+- undo https://www.flaticon.com/free-icon/undo_225569#term=undo&page=1&position=2
+- multiplication https://www.flaticon.com/free-icon/cancel-cross_12990#term=multiplication&page=1&position=21
+- piggy https://www.flaticon.com/free-icon/piggy-bank_816209#term=piggy%20bank&page=1&position=24
+- restart https://www.flaticon.com/free-icon/arrows-circle-of-two-rotating-in-clockwise-direction_58924#term=arrow%20double&page=1&position=60
+- podium https://www.flaticon.com/free-icon/podium_750958
+- books https://www.flaticon.com/free-icon/books-stack_46881#term=stack&page=1&position=12
+- swicth https://www.flaticon.com/free-icon/switch_259560#term=swap&page=1&position=16
+- Game icons https://www.flaticon.com/packs/gaming-27
