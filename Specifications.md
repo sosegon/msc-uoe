@@ -1,0 +1,14 @@
+## Game modifications
+- Modes:
+  - Classic
+  - Reach the tile: A tile with a value 512 or higher will appear in the grid. The objective is to match that tile.
+- Sounds:
+  - Matching tiles
+  - Game over
+  - Win
+- Tricks:
+  - Bomb: Destroy tiles with number 2.
+  - Gift: Put a gift tile in the grid which matches any tile.
+  - Blocker: Block new tiles for 1, 2 o 3 turns.
+  - Undo
+  - Doubler: Doubles the value of the 2, 4 or 8 tiles in the grid.
