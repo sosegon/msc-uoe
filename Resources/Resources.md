@@ -8,4 +8,5 @@
 - podium https://www.flaticon.com/free-icon/podium_750958
 - books https://www.flaticon.com/free-icon/books-stack_46881#term=stack&page=1&position=12
 - swicth https://www.flaticon.com/free-icon/switch_259560#term=swap&page=1&position=16
+- gamepad https://www.flaticon.com/free-icon/gamepad_750945
 - Game icons https://www.flaticon.com/packs/gaming-27
