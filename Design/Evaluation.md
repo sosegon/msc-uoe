@@ -78,6 +78,51 @@ The results of the study are divide in several groups according to the features 
 - The subject understood how to use the up arrow in the toolbar.
 
 ### Conclusions
+The changes are suggested according to the findings of the study.
+#### Game
+##### Logic
+- Change the concept of "Anki money" to "coins".
+- Add the text explaining the logic of the game as in the original version of 2048.
+- Inform clearly about how to earn coins.
+- Display a dialog when switching modes.
+- Add a clear and short explanation of the modes in the corresponding dialog.
+- Implement levels of difficulty.
+- Implement badges after winning a level or reaching a given score.
+- Inform the user when reaching a new position in the leaderboard.
+
+##### Resources (Tricks)
+- Add information about the objective of each trick.
+- Use proper icons for every trick.
+- The effect of evey trick has to be shown right away.
+- Revise the price of the trick to encourage user to use them all.
+
+##### Tools
+- Add labels close to the icons.
+- Change the icon for the leaderboard.
+
+##### Information elements
+- Use another sign for the game money.
+
+#### Anki
+##### Initial test
+- **Avoid the test**
+- Number the cards.
+
+##### Revision 
+- Change the visual style of the list of decks so users tap on a deck.
+- Add information about the objective of the decks and how to use the cards.
+- Add information to let the user knows remaining cards in the deck.
+
+##### Session test
+- Number the cards.
+
+##### Connection with game
+- **Avoid the initial test due to inconsistency between the initial usage of Anki and the following ones.**
+
+#### Extras
+- Have consistency in dialogs that are informative only.
+- Have a clear difference between informative dialogs and call to action ones.
+- Add a help screen in both components to give clear information to the user.
 
 ## Version with independent contexts
 
@@ -133,3 +178,38 @@ Similarly, the results of the study are divide in several groups according to th
 - The subject thought that tapping in the top bar leads to another screen.
 
 ### Conclusions
+The changes are suggested according to the findings of the study.
+
+#### Game
+##### Logic
+- Display a dialog when switching modes.
+- Add a clear and short explanation of the modes in the corresponding dialog.
+
+##### Resources (Tricks)
+- Use proper icons.
+- The effect of evey trick has to be shown right away.
+
+##### Tools
+- Add labels close to the icons.
+
+##### Information elements
+- Make them more visually interesting.
+
+#### Anki
+##### Initial test
+- **Avoid the test**
+- Number the cards.
+
+##### Revision 
+- Change the visual style of the list of decks so users tap on a deck.
+
+##### Session test
+- Add an element to encourage the user to take the test.
+
+##### Connection with game
+- **Avoid the initial test due to inconsistency between the initial usage of Anki and the following ones.**
+
+#### Extras
+- Have consistency in dialogs that are informative only.
+- Have a clear difference between informative dialogs and call to action ones.
+- Add a help screen in both components to give clear information to the user.
