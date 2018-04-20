@@ -109,3 +109,20 @@ of available game coins is not enough to buy it.
 
 #### Extras
 - The landing context of the application is Anki.
+
+### Screen sketches
+
+The following screens serve as references for the user interface of the application; they do not represent the final feel and look.
+
+![Image](./Design/Screen_sketches/20180420_134607.jpg)
+![Image](./Design/Screen_sketches/20180420_135032.jpg)
+![Image](./Design/Screen_sketches/20180420_135057.jpg)
+![Image](./Design/Screen_sketches/20180420_135509.jpg)
+![Image](./Design/Screen_sketches/20180420_134607.jpg)
+![Image](./Design/Screen_sketches/20180420_135901.jpg)
+![Image](./Design/Screen_sketches/20180420_140110.jpg)
+![Image](./Design/Screen_sketches/20180420_140132.jpg)
+![Image](./Design/Screen_sketches/20180420_140739.jpg)
+![Image](./Design/Screen_sketches/20180420_140835.jpg)
+![Image](./Design/Screen_sketches/20180420_140931.jpg)
+![Image](./Design/Screen_sketches/20180420_141137.jpg)
