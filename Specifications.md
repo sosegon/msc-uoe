@@ -1,6 +1,6 @@
 ## Specifications for AnkiGame
 ### Version with connection
-#### Game
+#### 1. Game
 - The main logic of the game (**Classic mode**) is the same as in the original version:
   - The game starts with two tiles of value 2 randonmly positioned in the 4x4 grid.
   - The tiles in the 4x4 grid can be moved vertically or horizontally. 
@@ -53,8 +53,10 @@ of available game coins is not enough to buy it.
   - *Using a trick*
 - The game has an initial number of available game coins.
 - The game can disable sounds.
+- The game has a counter for the number of turns.
+- At the end of the game, the application informs the position in the leaderboard.
 
-#### Anki
+#### 2. Anki
 - The main logic of Anki is maintained, the following features might not be needed
   - **Decks screen**:
     - Left side bar icon.
@@ -83,31 +85,97 @@ of available game coins is not enough to buy it.
 - Anki provides an score based on the revisions and results of the quizz.
 - The number of coins are updated in every revised card and during the quizz
 
-#### Connection
+#### 3. Connection
 - The leaderboard ranks the users based on the scores of the game modes and the score in Anki.
 - The application can change contexts at any point, the user decides it.
 
-#### Extras
+#### 4. Extras
 - The application displays daily notifications to remember the user to use it.
 - At the end of the study, the users receives a notification to take the final test. The test is not mandatory, but the users are encouraged to take it in different ways. The final test is the same used in the initial stage.
 - The landing context of the application is the game.
 - The first time the user decides to earn points, he has to take the initial test. **This might not be neccesary**
-- Multiple revisions are allowed, but in each revision on the same day, the application displays new cards. 
+- Multiple revisions are allowed, but in each revision on the same day, the application displays new cards.
+- The application has a help page with useful information of the current screen.
+- The application allows to set a nickname and an avatar.
 
+#### 5. Data logging
+- The application needs to log events and other type of information for further analysis. 
+- The logs include the time and date.
+- Starting a game logs the following information:
+  - Best score.
+  - Number of coins.
+  - Game mode.
+  - Current position in the leaderboard.
+- Ending a game logs the following information:
+  - Best score.
+  - Current score.
+  - Number of coins.
+  - Number of coins utilised in the session.
+  - Game mode.
+  - Number of times tricks were utilised in the session.
+  - Position in the leaderboard.
+- Using a trick logs the following information:
+  - Trick type.
+  - Best score.
+  - Current score.
+  - Tiles and their values.
+  - Current position in the leaderboard.
+  - Number of coins.
+  - Number of moves (Match the tile mode.)
+- Changing the game mode logs the following information:
+  - Best score.
+  - Current score.
+  - Tiles and their values.
+  - Current position in the leaderboard.
+  - Number of coins.
+  - Previous game mode.
+  - Selected game mode.
+- Checking the leaderboard logs the following information:
+  - Best score.
+  - Current score.
+  - Tiles and their values.
+  - Current position in the leaderboard.
+  - Number of coins.
+  - Game mode.
+- Restarting the game logs the following information:
+ - Best score.
+ - Current score.
+ - Tiles and their values.
+ - Current position in the leaderboard.
+ - Number of coins.
+ - Number of coins utilised in the session.
+ - Number of times tricks were utilised in the session.
+ - Game mode.
+- Changing the context from game to Anki logs the following information:
+ - Best score.
+ - Current score.
+ - Tiles and their values.
+ - Current position in the leaderboard.
+ - Number of coins.
+ - Number of coins utilised in the session up to then. 
+ - Number of times tricks were utilised in the session up to then.
+ - Game mode.
+- Changing the context from Anki to game logs the following information:
+ - Number of coins.
+ - Number of earned coins.
+- Taking a quizz logs the following information:
+ - Number of cards in the revision.
+ - Correct and incorrect answers.
+- Anki already has a database with useful information that can be retrieved.
 
 ### Version with independent contexts
-#### Game
+#### 1. Game
 - There are no game coins.
 - Tricks can be used at will.
 
-#### Anki
+#### 2. Anki
 - No game coins granted.
 - No score.
 
-#### Connection
+#### 3. Connection
 - No leaderboard.
 
-#### Extras
+#### 4. Extras
 - The landing context of the application is Anki.
 
 ### Screen sketches
