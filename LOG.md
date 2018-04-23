@@ -1,4 +1,15 @@
 # Progress log
+## Week 23-04-2018 | 29-04-2018
+- Previous week:
+  - I created the prototypes for each version of the application and evaluated them
+  - I wrote the specifications document.
+  - I don't need to use react since I missunderstood the idea of such framework.
+- This week:
+  - I will prioritize the features from the specifications document.
+  - I will deliver the first prototype of the application.
+  - The second version of the application will be a slightly different approach, so that version will be ready right after the first one is done.
+  - I will write the Ethics document for testing the application with participants.
+
 ## Week 16-04-2018 | 22-04-2018
 - Previous week I submitted my IPP report. I was able to compile the game and create the skeleton for the development. Morevover, I created the firebase application. This week, I will define the prototypes and will test them with a couple of people. I will also try to set react native for the development of the application since I think it will be easier for integration.
 
