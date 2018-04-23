@@ -17,3 +17,6 @@ There are several elements and startegies from games that can be included in the
 - Goals
 
 The plan is to use this elements and strategies to combine both components AnkiAndroid and the game. How the interaction with AnkiAndroid can be using during the game?
+
+## Plan
+![Image](./plan.png)
