@@ -1,4 +1,11 @@
 # Progress log
+## Week 30-04-2018 | 06-05-2018
+- I have the features prioritized.
+- I don't them the Ethics document by now.
+- I have started the implementation.
+- I have connected the game and anki.
+- This week, I want to have the cards modified to give coins and the test after the session.
+
 ## Week 23-04-2018 | 29-04-2018
 - Previous week:
   - I created the prototypes for each version of the application and evaluated them
