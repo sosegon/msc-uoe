@@ -1,7 +1,11 @@
 # Progress log
+## Week 07-05-2018 | 13-05-2018
+- I modified the cards to increase the game coins.
+- I will continue with the critical features.
+
 ## Week 30-04-2018 | 06-05-2018
 - I have the features prioritized.
-- I don't them the Ethics document by now.
+- I don't need the Ethics document by now.
 - I have started the implementation.
 - I have connected the game and anki.
 - This week, I want to have the cards modified to give coins and the test after the session.
