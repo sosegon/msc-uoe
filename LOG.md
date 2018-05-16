@@ -1,5 +1,8 @@
 # Progress log
 ## Week 07-05-2018 | 13-05-2018
+- Í will implement the features related to the game only.
+
+## Week 07-05-2018 | 13-05-2018
 - I modified the cards to increase the game coins.
 - I will continue with the critical features.
 
