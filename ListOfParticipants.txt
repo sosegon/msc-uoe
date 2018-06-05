@@ -22,3 +22,6 @@ Kevin Curtis, , experimental, linkedin
 Rami Alzahrani, Ra-mi@hotmail.com, experimental, udacity-linkedin
 Eslam Nagi, , experimental, udacity-linkedin
 Ramy Mohamed, , experimental, udacity-linkedin
+Vitaliy Misurenki, , experimental, udacity-linkedin
+Essam Mosbah, , experimental, udacity-linkedin
+Samantha Ch K, samanthak_3@hotmail.com, experimental, cec-epn

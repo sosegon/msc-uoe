@@ -12,3 +12,6 @@ Hi , I graduated from the Android Developer Nanodegree a few months ago. Now, I 
 
 BR,
 SV
+
+#Response
+Great. Thanks for your help ''. I will contact you in June when the app is ready. Progress of the dev can be seen under the HT #2048anki in Linkedin and Twitter
