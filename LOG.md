@@ -1,4 +1,7 @@
 # Progress log
+## Week 04-06-2018 | 10-06-2018
+- I am finishing the application this week. 
+
 ## Week 07-05-2018 | 13-05-2018
 - Í will implement the features related to the game only.
 
