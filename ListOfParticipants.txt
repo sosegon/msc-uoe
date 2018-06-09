@@ -1,27 +1,27 @@
-Name, contact, group, where
-Mengzhu Cai, s1734032@sms.ed.ac.uk, experimental, uoe
-Arturo Polanco, apolanco3225@gmail.com, experimental, udacity
-Youssef Al Hariri, s1723488@sms.ed.ac.uk, experimental, uoe
-Pritam Hinger, hinger.pritam@gmail.com, experimental, udacity
-Thomas Chase, chasecorcoran@gmail.com, experimental, udacity
-Claudia Iglesias, ciferreiracps1@gmail.com, experimental, livemocha
-Shijie Yao, s1770642@sms.ed.ac.uk, experimental, uoe
-Gioconda, +584143616735, experimental, other
+Name, contact, group, where, contacted
+Mengzhu Cai, s1734032@sms.ed.ac.uk, experimental, uoe, yes
+Arturo Polanco, apolanco3225@gmail.com, control, udacity, yes
+Youssef Al Hariri, s1723488@sms.ed.ac.uk, experimental, uoe, yes
+Pritam Hinger, hinger.pritam@gmail.com, control, udacity, yes
+Thomas Chase, chasecorcoran@gmail.com, experimental, udacity, yes
+Claudia Iglesias, ciferreiracps1@gmail.com, control, livemocha, yes
+Shijie Yao, s1770642@sms.ed.ac.uk, experimental, uoe, yes
+Gioconda, +584143616735, control, other
 Miriele Schumacker, +34651373654, experimental, other
-Roberto, +34660401201, experimental, other
-Juzer Shakir, juz.shakir5253@gmail.com, experimental, udacity
-Jie Zhang, zhangjie09@buaa.edu.cn, experimental, uoe
-Anshaj Khare, akhr2013@gmail.com, experimental, uoe
-Stathus Fotiadis, sfotiadis@gmail.com, experimental, uoe
-Anko Top, anko.top@reactivity.nl, experimental, linkedin
-Tarek Bohdima, , experimental, udacity
-Abdihakin Abdullahi, , experimental, udacity-linkedin
-Mahmoud A., , experimental, udacity MWS
-Devang Soni, soni_devang@ymail.com, experimental, linkedin
-Kevin Curtis, , experimental, linkedin
-Rami Alzahrani, Ra-mi@hotmail.com, experimental, udacity-linkedin
-Eslam Nagi, , experimental, udacity-linkedin
-Ramy Mohamed, , experimental, udacity-linkedin
-Vitaliy Misurenki, , experimental, udacity-linkedin
-Essam Mosbah, , experimental, udacity-linkedin
-Samantha Ch K, samanthak_3@hotmail.com, experimental, cec-epn
+Roberto, +34660401201, control, other
+Juzer Shakir, juz.shakir5253@gmail.com, experimental, udacity, yes
+Jie Zhang, zhangjie09@buaa.edu.cn, control, uoe, yes
+Anshaj Khare, akhr2013@gmail.com, experimental, uoe, yes
+Stathus Fotiadis, sfotiadis@gmail.com, control, uoe, yes
+Anko Top, anko.top@reactivity.nl, experimental, linkedin, yes
+Tarek Bohdima, , control, udacity, yes
+Abdihakin Abdullahi, , experimental, udacity-linkedin, yes
+Mahmoud A., , control, udacity MWS
+Devang Soni, soni_devang@ymail.com, experimental, linkedin, yes
+Kevin Curtis, , control, linkedin, yes
+Rami Alzahrani, Ra-mi@hotmail.com, experimental, udacity-linkedin, yes
+Eslam Nagi, , control, udacity-linkedin, yes
+Ramy Mohamed, , experimental, udacity-linkedin, yes
+Vitaliy Misurenki, , control, udacity-linkedin, yes
+Samantha Ch K, samanthak_3@hotmail.com, experimental, cec-epn, yes
+Essam Mosbah, , control, udacity-linkedin, yes
