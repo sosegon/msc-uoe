@@ -7,6 +7,10 @@
 - restart https://www.flaticon.com/free-icon/arrows-circle-of-two-rotating-in-clockwise-direction_58924#term=arrow%20double&page=1&position=60
 - podium https://www.flaticon.com/free-icon/podium_750958
 - books https://www.flaticon.com/free-icon/books-stack_46881#term=stack&page=1&position=12
-- swicth https://www.flaticon.com/free-icon/switch_259560#term=swap&page=1&position=16
-- gamepad https://www.flaticon.com/free-icon/gamepad_750945
+- switch https://www.flaticon.com/free-icon/switch_259560#term=swap&page=1&position=16
+- gamepad https://www.flaticon.com/free-icon/gamepad-console_25428#term=game&page=1&position=32
+- blocked https://www.flaticon.com/free-icon/block_648393#term=blocked&page=1&position=62
+- star https://www.flaticon.com/free-icon/star_149763#term=star&page=1&position=9
+- dice https://www.flaticon.com/free-icon/dice_750961
+- question https://www.flaticon.com/free-icon/question-mark-on-a-circular-black-background_25400#term=question&page=1&position=26
 - Game icons https://www.flaticon.com/packs/gaming-27
