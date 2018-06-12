@@ -1,4 +1,34 @@
 # Progress log
+## Week 11-06-2018 | 17-06-2018
+- The two versions of the application are published in Google Play.
+- This week I am running beta tests.
+- I will contact the remaining participants and will recruit others.
+- I will take the test for data collection of the University.
+- I will provide a document with information for the participants.
+- I will start the writing of the thesis.
+- Some questions for the meetings with the supervisors:
+  - What is the level of detail about the study I should give to the participants? How much knowledge do they need to have about the objective of the study without creating a bias for them?
+    
+    Maria Wolters to ask what I need to provide 
+
+  - I added a sharing feature, wo other people may download the application. How should I handle that? Initially, I will have a specific number of participants, but if they share the application with other people how should I handle that?
+    
+    Separate the data from extra users if relevant.
+
+  - Moreover, what if I simply share the app in social networks and people download them?
+
+  - What if I ended up with unbalanced number of participants?
+
+  - Since the application is in Google Play, I may get feedback from the users. This feedback will take the form of comments. I defined my analysis based on quantitative data, but comments and opinions is qualitative. How can I integrate that information into my analysis?
+
+    Consider the data if relevant.
+
+  - What if they ask for their data or the results of the study?
+
+  - I need to write a privacy policy explaining what data is shared.
+
+  - The data that I am collecting does not fall into the category of personal data. How do I handle that?
+
 ## Week 04-06-2018 | 10-06-2018
 - I am finishing the application this week. 
 
