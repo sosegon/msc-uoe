@@ -21,7 +21,7 @@
 
   - Since the application is in Google Play, I may get feedback from the users. This feedback will take the form of comments. I defined my analysis based on quantitative data, but comments and opinions is qualitative. How can I integrate that information into my analysis?
 
-    Consider the data if relevant.
+    Consider the data if relyouevant.
 
   - What if they ask for their data or the results of the study?
 
