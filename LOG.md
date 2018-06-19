@@ -1,4 +1,17 @@
 # Progress log
+## Week 18-06-2018 | 24-06-2018
+- The versions were modified according to the feedback from the beta testing.
+- The participants were contacted and instructed about the application.
+- This week, I expect to receive confirmations of installation.
+- I will start to do writing of the thesis.
+- Some questions for the meeting:
+  - What is the level of detail about the implementation of the application for the thesis?
+
+    No need to provide many details about the implementation.
+
+- I will provide an sketch of the thesis for the supervisors.
+- It is ok to broadcast the application but keep the data from the participants in the experiment separated.
+
 ## Week 11-06-2018 | 17-06-2018
 - The two versions of the application are published in Google Play.
 - This week I am running beta tests.
