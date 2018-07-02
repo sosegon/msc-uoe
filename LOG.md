@@ -1,4 +1,22 @@
 # Progress log
+## Week 02-07-2018 | 08-07-2018
+-Previous week:
+  - I added a new feature for the users to spend coins.
+  - I opened the application for the general public.
+
+- This week:
+  - Advertise the application in the university and social networks
+  - Write ths chapters 4 and 5.
+  - Write the progress report.
+
+## Week 25-06-2018 | 01-07-2018
+- In the previous week:
+  - I started the writing.
+  - I added content to the Introduction and Related Work.
+- I implemented a new feature in the application called Ankimals.
+- Questions:
+  - Explain the background chapter in detail.
+
 ## Week 18-06-2018 | 24-06-2018
 - The versions were modified according to the feedback from the beta testing.
 - The participants were contacted and instructed about the application.
@@ -21,11 +39,11 @@
 - I will start the writing of the thesis.
 - Some questions for the meetings with the supervisors:
   - What is the level of detail about the study I should give to the participants? How much knowledge do they need to have about the objective of the study without creating a bias for them?
-    
-    Maria Wolters to ask what I need to provide 
+
+    Maria Wolters to ask what I need to provide
 
   - I added a sharing feature, wo other people may download the application. How should I handle that? Initially, I will have a specific number of participants, but if they share the application with other people how should I handle that?
-    
+
     Separate the data from extra users if relevant.
 
   - Moreover, what if I simply share the app in social networks and people download them?
@@ -43,7 +61,7 @@
   - The data that I am collecting does not fall into the category of personal data. How do I handle that?
 
 ## Week 04-06-2018 | 10-06-2018
-- I am finishing the application this week. 
+- I am finishing the application this week.
 
 ## Week 07-05-2018 | 13-05-2018
 - Í will implement the features related to the game only.
@@ -76,7 +94,7 @@
 ## Week 09-04-2018 | 15-04-2018
 - Previous week I delivered my draft for the IPP report. The supervisors reviewed it and provided feedback. I will discuss about the feedback in the meeting this week. I am especially interested in the following things:
   - Spliting the introduction in related work and the thing I am going to do.
-    - **The objective of the introduction is to put things in perspective. It is not necessary to split the section, but it is important to clarify two things. The first one is the related work which refers to things done previously. The second one is the background which is related to the project itself. The background should be written last; the objective of this section is to give a clear idea of the project without providing too many details. If the reader is interested in more details he might continue reading the document. So, I think the background also has to motivate the reader to reach the next sections.** 
+    - **The objective of the introduction is to put things in perspective. It is not necessary to split the section, but it is important to clarify two things. The first one is the related work which refers to things done previously. The second one is the background which is related to the project itself. The background should be written last; the objective of this section is to give a clear idea of the project without providing too many details. If the reader is interested in more details he might continue reading the document. So, I think the background also has to motivate the reader to reach the next sections.**
     - **However, this raises the question about the abstract. The abstract has to deliver three important aspects: crisis, solution and happiness. Crisis refers to the problem, what the current situation is and how this is an issue. The solution refers to the thing that we are proposing to solve that problem. Finally, the happiness is the final result, hopefully, the proposed solution solved the problem.**
   - How to better explain the integration of the game and AnkiDroid?
     - **Here, I will need provide more details about how the integration of the game and the AnkiDroid is going to happen. I explained that resources obtained while using AnkiDroid will be used in the game, but I need to elaborate more on that. I need to provide detailed information about the use of the resources in the game, which means that I need to explain more about the modifications I will do to the game since right now is quite simple and I need to make it more appealing to the users by providing more features.**
@@ -106,7 +124,7 @@
 	- **I need to provide some samples about the questions in the IPP report.**
 	- **Prefer graphics over text for the thesis.**
 
-- I also asked for advice about the evaluation part of the proposed design. I was suggested to a informal evaluation of the existing interfaces using the think aloud methodology. Moreover, I was also suggested to use 2 or 3 paper prototypes and perform the human computer to evaluate them and find big problems. I originally thought about cognitive walkthrough as my method of evaluation, however, this option is quite formal and aimed to find problems in the details. 
+- I also asked for advice about the evaluation part of the proposed design. I was suggested to a informal evaluation of the existing interfaces using the think aloud methodology. Moreover, I was also suggested to use 2 or 3 paper prototypes and perform the human computer to evaluate them and find big problems. I originally thought about cognitive walkthrough as my method of evaluation, however, this option is quite formal and aimed to find problems in the details.
 
 - I am also expecting feedback for another professor who is an expert in human computer interaction. Hopefully, I will get her feedback before the deadline to improve the report, otherwise, I will simply use it as a reference during the development.
 
@@ -131,7 +149,7 @@ s
 ## Week 12-03-2018 | 18-03-2018
 - I have selected the open source game I will use to integrate AnkiAndroid with. The game is the popular **2048**.
 - I chose this game because is simple, kind of addictive (I have spent several hours trying to win the game), and it has way more users compared to other open source games.
-- My first idea to integrate AnkiAndroid into the game is to set a toggle button in the interface of the game. This button will allow the user to enable/disable the flashcard feature. When the feature is enabled, a flashcard will be displayed after the user loses the game. 
+- My first idea to integrate AnkiAndroid into the game is to set a toggle button in the interface of the game. This button will allow the user to enable/disable the flashcard feature. When the feature is enabled, a flashcard will be displayed after the user loses the game.
 - During this week, I will search for literature references related to gamification and space repetition. Hopefully, I can find previous work that has
  combined both fields.
 - Also, I will sketch the plan for the project based on the due date and the work to be done.
