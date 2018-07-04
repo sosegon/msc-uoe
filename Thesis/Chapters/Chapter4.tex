@@ -1,28 +1,90 @@
-% Chapter 1
+% Chapter 4
 
 \chapter{Design and Implementation} % Main chapter title
 
-\label{desi} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+\label{desi} % For referencing the chapter elsewhere, use \ref{desi}
 
 \lhead{Chapter 4. \emph{Design and Implementation}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
 \section{Definition of gamification scheme}
 
-%----------------------------------------------------------------------------------------
-\subsection{Rewards}
+The primary design decision to start the gamification process was the integration of a casual game within AnkiDroid. It was motivated for two reasons, first, casual games are simple and their gameplays allow to play them over short periods of time. These characteristics make casual games activities that can be executed during work or study breaks. In these conditions, AnkiDroid users could switch from reviewing cards to playing the game during breaks. However, the main reason to integrate a casual game was the setting of an stage to add game components into AnkiDroid. Therefore, it was necessary to establish a connection between AnkiDroid and the game which required modifying the latter.
 
 %----------------------------------------------------------------------------------------
-\subsection{Competition}
+\subsection{Modifications of the game}
+The selected game was 2048 \citep{uberspot2017game}. It is a puzzle type game with a 4x4 grid as seen in Figure \ref{fig:2048}. The objective of the game is to merge numbered blocks until create one with the value 2048. The game starts with two blocks of value 2 which are randomly positioned in the grid. The player has to slide the blocks horizontally or vertically. The blocks move in the choosen direction; a block stops if it reaches an edge of the grid or collides with another block. If two colliding blocks have the same number, they are merged into a single block which value is the sum of the values of the forming blocks. In every turn, a new block of value 2 is randomly positioned in the grid.
+
+The game is simple, yet challenging due to the high number of turns to form the block 2048 (1024 turns in the perfect case). Another aspect that increases the difficulty of the game is the limited space, if there exist no more empty cells in the grid, and no further movements are possible, then the game is over. These conditions set a perfect scenario to modify the game and reduce its diffculty. Such modifications have to be consistent with the easy-to-use paradigm of casual games. Moreover, they need to mantain a consistency among them such that the usage and results of all of them are similar.
+
+Based on the requirements for the modifications of the game, they were implemented in the form of cheat tricks. These tricks were meant to reduce the difficulty of the game by altering the state of the grid. The state of the grid is defined by the positions of the blocks and their values at a given turn. Therefore, there exist several options to change the state of the board. Moreover, each possible cheat trick needs to provide a different degree of benefit, thus, they're not equally valuable. The modifications included four cheat tricks as seen in Table \ref{tab:tricks}. It is important to note the restrictions in their usage based on the state of the grid.
+
+\begin{table*}[!htb]
+	\centering
+	\begin{tabular}{|l|l|l|}
+	\hline
+	\textbf{Trick name} & \textbf{Benefit} & \textbf{Restriction}\\
+	\hline
+	Gift & Adds a randomly positioned block that can merge with any block with value less than 512. & There are empty cells in the grid\\
+	\hline
+	Doubler & Doubles all the blocks which values are 2. & There are blocks of value 2 in the grid.\\
+	\hline
+	Remover & Removes all the blocks which values are 2. & There are blocks of value 2 in the grid, and at least one block of any other value.\\
+	\hline
+	Undo & Undoes the last movements (up to 10 previous movements). & There are previous movements.\\
+	\hline
+	\end{tabular}
+	\caption{Cheat tricks for the game, their benefits, and restrictions}
+	\label{tab:tricks}
+\end{table*}
 
 %----------------------------------------------------------------------------------------
 \subsection{Resources}
+Once the game modifications were ready, game elements in AnkiDroid started to be added. The next important design decision was aimed to allow users obtain the benefits of tricks in exchange of something. This is something common in games where users buy assets and other elements using a virtual currency. In some cases, the virtual currency is mapped to a real one. However, a simpler approach requires the user to do some activities within the game to earn virtual money. Following this scheme, the decision led to the implementation of game coins as the resource to be exchanged for tricks. Unlike games, the users are not required to do activities in the game but within AnkiDroid to earn game coins.
+
+In addition to doing activities to earn coins, the main interest is to keep users motivated to use AnkiDroid features. Moreover, one of the most relevant features of the application is the revision of flashcards. These three conditions set a suitable scenario to allow the users earn coins. Thus, game coins were defined as a resource to be obtained as a result of reviewing cards which converted them in the first motivational element to increase user engagement. The premise is that the more cards a user reviews, the higher the number of earned coins. This simple rule needed to consider some relevant aspects about the revision process to avoid unexpected behaviours from the users.
+
+The revision process of flashcards has two components. The first one is the displaying of the front of the flashcard (or question); the second one is the exhibition of the back of the flashcard (or answer) followed by the corresponding difficulty assessment. After a flashcard is assessed a new question is automatically displayed to the user, repeting the process indefinitely. From the user's perspective there are two moments for each card: watching the question and revealing the answer. In both moments the user needs to interact with the application to continue to the following one. This means that the user decides how much time questions and answers are displayed. However, the time for each flashcard greatly depends on its content.
+
+The content of flashcards varies from deck to deck, it can be as simple as text, or as complex as including multimedia components like images and audio. The other aspect that defined the amount of time per flashcard is its easiness which is defined by the user. Both conditions mean that there is a correlation between the time to review a flashcard and the users' effort. Under this condition, it is fair to define the number of coins per flashcard as a function of time. However, a couple of restrictions had to be considered to avoid undesired behaviours from users.
+
+The first undesired behaviour is passing flashcards as fast as possible to obtain the highest number of possible coins. Another behaviour is spending more time than needed to review flashcards to obtain more coins in each flashcard. The strategy to diminish these behaviours consisted in the setting of ranges of time when seeing questions and answers. Therefore, there are three ranges to calculate the number of coins in each card: null, linear, and constant. In the null range no coins are given, it lasts for one second from the moment a question or an answer are displayed. The linear range lasts for three seconds; here, the number of coins are proportional to the amount of time. Finally, in the constant range no further coins are given; it lasts until the user display the answer of the card of a new question.
+
+The described strategy to earn coins is shown in Figure \ref{fig:coins-formula}. It is important to note that this strategy means that there is a minimum and maximum number of coins that can be earned in each card, 0 and 6 respectively. A potential drawback of this method of earning coins is the repetition of a card. AnkiDroid allows to undo the previous reviewed flashcard, which means that the user can earn additional coins in a flashcard. However, reviewing the previous flashcard again should not be penalized. Therefore, the previously earned coins are kept. It is worth to remember that the flashcards are shown to users based on how they assess them, thus, AnkiDroid can display them repeatedly in a short period of time.
 
 %----------------------------------------------------------------------------------------
-\section{Modification and integration of game}
+\subsection{Rewards}
+Since coins are given after reviewing a card, they can be seen as a reward as well. However, their dynamic characteristic (they can be spent by the user), and how they are calculated reduce their potential benefits as rewards. Thus, it was necessary to implement a new element with a similar earning scheme but different characteristics. Points are a common element in games, their objective varies from context to context, but usually they provide information about progress. Other educational platforms have added points as motivational element \citep{disalvo2014khan}.
+
+Points were designed to be calculated in a similar way to coins. Similarly, there exist ranges of time to earn coins. The first range has the same objective as the one for coins, therefore, its duration is similar. A second range is meant to earn coins proportionally to the time, however, the relation is not linear but logaritmic as seen in Figure \ref{fig:points-formula}. This type of relation has two objectives, the first one is to create an additional distinction between points and games. The second goal has to do with coins. Since the content of some flashcards can require more time than usual to review, the maximum number of coins per flashcard acts as a penalization for large flashcards. Therefore, the lack of a limit for the number of points earned in a flashcard can help to reduce a potential penalization in large flashcards.
+
+The informative characteristic of points was also leveraged to increase the connection between AnkiDroid and the game. There are two considerations. First, using cheat tricks in the game depends on the number of coins i.e. the time spent reviewing cards. In addition, the schemes to earn points and coins is similar. Therefore, it is possible to add another modification in the game based on points. Such modifications is the availability of tricks. This means that tricks are initially blocked. Using cheat tricks requires to earn a given number of points to unblock them. Thus, using a cheat trick requires to fulfill three conditions: required number or points to unblock it, required number of coins to buy it, and no restriction as seen in Table \ref{tab:tricks}.
 
 %----------------------------------------------------------------------------------------
-\section{Data collection}
+\subsection{Social and competition}
+The informative nature of points can also be used to integrate other common element to games: a leaderboard. This component has two objectives, first, it provides a social context to the users. Thus, users know that there are other people using the application. The second objective is the sense of competition which add another motivational aspect to the revision of flashcards. Even though users of the application can not directly communicate to each other, and it is likely they do not have any kind of relationship among them, they are able to see the progress of each other wwen checking the positions on the leaderboard which are set based on the number of earned points of each user.
 
 %----------------------------------------------------------------------------------------
-\section{User interface considerations}
+\subsection{Achievements}
+Rewards are by nature obtained after doing small tasks. Until this point, the rewards were designed as coins and points to be earned in every reviewed flashcard. However, several games implements more advanced elements that increases the player's motivation. Such elements are known as achievements, which are similar to rewards. The main difference relies in the size of the tasks which are bigger for achievements. Unblocking the cheat tricks in the game can be seen as achievements. However, a further step required to design achievements in the context of AnkiDroid.
+
+Following some game schemes, the achievements in the context of AnkiDroid were defined as ankimals (pets) that have to be rescued. Therefore, an achievement was defined as a task aimed to rescue the ankimals. Similar to cheat tricks in the game, ankimals have an specific order based on the number of required points to rescue them. However, the main difference between cheat tricks and ankimals are the notification aspect of the latter. The user has no feedback when the number of points to unblock a cheat trick has been reached.
+
+The lack of notifications for unblocked cheat tricks is due to the objective of the gamification process. The user has to be motivated to use AnkiDroid not the game. However, since ankimals were defined as achievements based on the number of earned points, it is important to inform the user when an achievement has been reached. For this reason, the design included notifications for the user to inform about the rescued ankimal. The notifications also encourage the user to earn more points, hence reviewing more flashcards, to get more achievements as seen in Figure \ref{fig:ankimals-rescue}.
+
+%----------------------------------------------------------------------------------------
+\subsection{Customization}
+Games provides customization aspects to give a more personal experience to players. Following this idea, two customizable components were designed. The first one was a nickname that can be set by the user. This element gives a higher sense of participation within the application. The second aspect for a custom experiences are avatars. Avatars are meant to provide a visual representation of a player which creates a sense of individuality in the user. Taking advantage of the existence of ankimals in the form of images, they were used as potential avatars for users.
+
+Selecting an ankimal as an avatar required two considerations. The first one is related to coins. As seen previously, the objective of coins was to buy cheat tricks in the game. A potential problem of this design is the lack of interest of users in the game. Thus, coins can become an idle resource. Diminishing this problem required to find additional assets to be acquired in exchange of coins. Since, rescued ankimals were originally represented as grayscale images, they become suitable elements for the use of coins. Therefore, ankimals were designed to be colored and set as avatars in exchange of coins. Finally, to complement the social and competitive aspect of the leaderboard, the nickname and the avatar of every player were displayed in the leaderboard.
+
+%----------------------------------------------------------------------------------------
+\subsection{Progress}
+Other important components of games are the visual elements that give information about progress and other aspects. This scheme was designed in the application as a status bar that displayed information about points, coins, rescued ankimals, avatar and nickname. The status bar was set to be displayed in the most relevant screens of the applications: deck picker, reviewer, and game. Additionally, a list of the ankimals was also added in the deck picker to show the rescued and not rescued ankimals. This list was also set to allow the selection and coloring of the ankimals.
+
+
+%----------------------------------------------------------------------------------------
+\subsection{User interface considerations}
+Several user interface aspects were considered to implement the game elements described earlier. First, the modifications in the game required the addition of interactive elements for each cheat trick. Initially, color information was used to differentiate the cheat tricks and to provide clues about their status (blocked, enabled, usable). Moreover, since the gameplay of the game required the users to slide vertically and horizontally, cheat tricks could easily be selected by mistake. Avoiding that problem required to design a traslucent curtain to be removed by the user before selecting cheat tricks.
+
+In AnkiDroid, the main considerations to implement the game elements were related to keep consistency in the overall aspect of the application and the visual clues for the user. The first aspect required to use the same color scheme along with other elements like the font type and size. On the other hand visual clues were meant to provide information about modifications in the game elements. This was done by implementing animations where necessary. For instance, when the number of coins or points changed, animations that updated the corresponding visual elements were implemented. Finally, the visual structure was maitained as much as possible to avoid the new components to be intrusive.
