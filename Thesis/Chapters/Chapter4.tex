@@ -7,7 +7,7 @@
 \lhead{Chapter 4. \emph{Design and Implementation}} % This is for the header on each page - perhaps a shortened title
 
 %----------------------------------------------------------------------------------------
-\section{Definition of gamification scheme}
+\section{Definition of gamification strategy}
 
 The primary design decision to start the gamification process was the integration of a casual game within AnkiDroid. It was motivated for two reasons, first, casual games are simple and their gameplays allow to play them over short periods of time. These characteristics make casual games activities that can be executed during work or study breaks. In these conditions, AnkiDroid users could switch from reviewing cards to playing the game during breaks. However, the main reason to integrate a casual game was the setting of an stage to add game components into AnkiDroid. Therefore, it was necessary to establish a connection between AnkiDroid and the game which required modifying the latter.
 
@@ -82,9 +82,25 @@ Selecting an ankimal as an avatar required two considerations. The first one is 
 \subsection{Progress}
 Other important components of games are the visual elements that give information about progress and other aspects. This scheme was designed in the application as a status bar that displayed information about points, coins, rescued ankimals, avatar and nickname. The status bar was set to be displayed in the most relevant screens of the applications: deck picker, reviewer, and game. Additionally, a list of the ankimals was also added in the deck picker to show the rescued and not rescued ankimals. This list was also set to allow the selection and coloring of the ankimals.
 
-
 %----------------------------------------------------------------------------------------
-\subsection{User interface considerations}
+\section{User interface considerations}
 Several user interface aspects were considered to implement the game elements described earlier. First, the modifications in the game required the addition of interactive elements for each cheat trick. Initially, color information was used to differentiate the cheat tricks and to provide clues about their status (blocked, enabled, usable). Moreover, since the gameplay of the game required the users to slide vertically and horizontally, cheat tricks could easily be selected by mistake. Avoiding that problem required to design a traslucent curtain to be removed by the user before selecting cheat tricks.
 
 In AnkiDroid, the main considerations to implement the game elements were related to keep consistency in the overall aspect of the application and the visual clues for the user. The first aspect required to use the same color scheme along with other elements like the font type and size. On the other hand visual clues were meant to provide information about modifications in the game elements. This was done by implementing animations where necessary. For instance, when the number of coins or points changed, animations that updated the corresponding visual elements were implemented. Finally, the visual structure was maitained as much as possible to avoid the new components to be intrusive.
+
+%----------------------------------------------------------------------------------------
+\section{Data collection}
+It was necessary to collect data from the application to analyse it and evalute the effectiveness of the gamification strategy. Originally, AnkiDroid collects a lot of usage information which is presented to users as statistics. These data give users a perspective about their progress based on the number of flashcards review, the number of sessions, the amount of time in sessions and more. The application even forecasts the number of flashcard to be reviewed in the near future. Even though the availability of this type of information, it is not used to evaluate the strategy because it provides a general overiew of the usage from the perspective of users, and discards many details.
+
+\subsection{Types of information}
+In addition, the information collected in the original application lacks details related to the integrated game and the gamification elements. Therefore, it was necessary to collect information relevant and specific to the implemented gamification strategy. This information is generated in points where the user interacts with the application like playing the game or reviewing flashcards. There, the users do specific actions that can provide clues about their behaviours and reason about them. The collected information can be grouped into four categories as seen in Table \ref{tab:info-type}.
+
+The first type of information is categorized as common. These data are meant to identify the time, date and user that generate them; they are recorded in every relevant interaction of the user with the application. The next type of information is related to the game; it includes details about the score, cheat tricks, and state of the grid. Game information can provide insights about the effectivenes of the integration. The gamification category has to do with the added game elements to AnkiDroid, it includes details about the number of coins, number of points, and names of the ankimals. Finally, the anki category refers to details about the decks, flashcards, and revision times.
+
+\subsection{Type of logs}
+The previously described types of information were stored in the form of logs. The logs are highly linked to the actions done by the users. For this reason, the number of types of logs is bigger than the number of types of information. Nonetheless, the logs can be grouped into two main classes: game logs and anki logs. Games logs are those containing the game type of information, however, some data from the gamification type of information is registered in these logs. Anki logs contain primarily anki type of data with some data of the gamification type. Common type of information is recorded in both groups of logs.
+
+Specifically speaking there are 6 types of game logs and 9 types of anki logs as shown in Table \ref{tab:log-types}. Game logs are expected to be generated in the game context. Something similar occurs with anki logs, however, the design of the solution allows one anki log to be generated in the game context: Check leaderboard. This is possible because user can open the leader-board either in the game context or in the anki context. The reason for this design is that the leaderboard provides information of social aspect. Despite the fact that the leader-board display gamification data (points), users are not asked to do an specific action in anki or the game contexts to see their positions.
+
+\subsection{Storage}
+The logs are stored remotely using Fireebase which provides a NoSQL realtime database service. In addition, Firebase provides an analytics service that gives information about usage through standard events automatically generated by the application.
