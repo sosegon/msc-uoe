@@ -13,7 +13,17 @@ The primary design decision to start the gamification process was the integratio
 
 %----------------------------------------------------------------------------------------
 \subsection{Modifications of the game}
-The selected game was 2048 \citep{uberspot2017game}. It is a puzzle type game with a 4x4 grid as seen in Figure \ref{fig:2048}. The objective of the game is to merge numbered blocks until create one with the value 2048. The game starts with two blocks of value 2 which are randomly positioned in the grid. The player has to slide the blocks horizontally or vertically. The blocks move in the choosen direction; a block stops if it reaches an edge of the grid or collides with another block. If two colliding blocks have the same number, they are merged into a single block which value is the sum of the values of the forming blocks. In every turn, a new block of value 2 is randomly positioned in the grid.
+The selected game was 2048 \citep{uberspot2017game}. It is a puzzle type game with a 4x4 grid as seen in Figure \ref{fig:2048-grid}. The objective of the game is to merge numbered blocks until create one with the value 2048. The game starts with two blocks of value 2 which are randomly positioned in the grid. The player has to slide the blocks horizontally or vertically. The blocks move in the choosen direction; a block stops if it reaches an edge of the grid or collides with another block. If two colliding blocks have the same number, they are merged into a single block which value is the sum of the values of the forming blocks. In every turn, a new block of value 2 is randomly positioned in the grid.
+
+\begin{figure}[htb]
+    \vskip 5mm
+        \begin{center}
+            \includegraphics[scale=0.5]{./Figures/game_grid.png}
+            \caption{Grid of the 2048 game.}
+            \label{fig:2048-grid}
+        \end{center}
+    \vskip -5mm
+\end{figure}
 
 The game is simple, yet challenging due to the high number of turns to form the block 2048 (1024 turns in the perfect case). Another aspect that increases the difficulty of the game is the limited space, if there exist no more empty cells in the grid, and no further movements are possible, then the game is over. These conditions set a perfect scenario to modify the game and reduce its diffculty. Such modifications have to be consistent with the easy-to-use paradigm of casual games. Moreover, they need to mantain a consistency among them such that the usage and results of all of them are similar.
 
@@ -21,20 +31,24 @@ Based on the requirements for the modifications of the game, they were implement
 
 \begin{table*}[!htb]
 	\centering
-	\begin{tabular}{|l|l|l|}
-	\hline
-	\textbf{Trick name} & \textbf{Benefit} & \textbf{Restriction}\\
-	\hline
-	Gift & Adds a randomly positioned block that can merge with any block with value less than 512. & There are empty cells in the grid\\
-	\hline
-	Doubler & Doubles all the blocks which values are 2. & There are blocks of value 2 in the grid.\\
-	\hline
-	Remover & Removes all the blocks which values are 2. & There are blocks of value 2 in the grid, and at least one block of any other value.\\
-	\hline
-	Undo & Undoes the last movements (up to 10 previous movements). & There are previous movements.\\
-	\hline
-	\end{tabular}
-	\caption{Cheat tricks for the game, their benefits, and restrictions}
+	{\renewcommand{\arraystretch}{2}
+		\begin{tabular}{|R{2cm}|R{6cm}|R{5cm}|}
+		\hline
+		\multicolumn{1}{|>{\centering\arraybackslash}m{2cm}|}{\textbf{Name}} &
+		\multicolumn{1}{>{\centering\arraybackslash}m{6cm}|}{\textbf{Benefit}} &
+		\multicolumn{1}{>{\centering\arraybackslash}m{5cm}|}{\textbf{Usage conditions}}\\
+		\hline
+		Gift & Adds a randomly positioned block that can merge with any block which value is less than 512. & There is at least one empty cell in the grid.\\
+		\hline
+		Doubler & Doubles all the blocks which values are 2. & There is at least one block of value 2 in the grid.\\
+		\hline
+		Remover & Removes all the blocks which values are 2. & There is at least one block of value 2 in the grid. \newline There is least one block of value greater than 2.\\
+		\hline
+		Undo & Undoes the last movements (up to 10 previous movements). & There are previous movements.\\
+		\hline
+		\end{tabular}
+	}
+	\caption{Cheat tricks for the game, their benefits, and usage conditions}
 	\label{tab:tricks}
 \end{table*}
 
@@ -50,13 +64,34 @@ The content of flashcards varies from deck to deck, it can be as simple as text,
 
 The first undesired behaviour is passing flashcards as fast as possible to obtain the highest number of possible coins. Another behaviour is spending more time than needed to review flashcards to obtain more coins in each flashcard. The strategy to diminish these behaviours consisted in the setting of ranges of time when seeing questions and answers. Therefore, there are three ranges to calculate the number of coins in each card: null, linear, and constant. In the null range no coins are given, it lasts for one second from the moment a question or an answer are displayed. The linear range lasts for three seconds; here, the number of coins are proportional to the amount of time. Finally, in the constant range no further coins are given; it lasts until the user display the answer of the card of a new question.
 
-The described strategy to earn coins is shown in Figure \ref{fig:coins-formula}. It is important to note that this strategy means that there is a minimum and maximum number of coins that can be earned in each card, 0 and 6 respectively. A potential drawback of this method of earning coins is the repetition of a card. AnkiDroid allows to undo the previous reviewed flashcard, which means that the user can earn additional coins in a flashcard. However, reviewing the previous flashcard again should not be penalized. Therefore, the previously earned coins are kept. It is worth to remember that the flashcards are shown to users based on how they assess them, thus, AnkiDroid can display them repeatedly in a short period of time.
+\begin{equation}
+	c(t) =
+  		\begin{cases}
+  			0 & \text{if t $\leq$ 1}\\
+  			t & \text{if 1 $<$ t $\leq$ 3}\\
+  			3 & \text{if t $>$ 3}\\
+  		\end{cases}
+  	\label{eq:coins-formula}
+\end{equation}
+
+The described formula to calculate coins is shown in Equation \ref{eq:coins-formula}, where \textit{c} is the number of coins and \textit{t} is time in seconds. If the number of coins has a decimal part, then it is rounded to the closest integer. It is important to note there is a minimum and maximum number of coins that can be earned in each card, 0 and 6 respectively. A potential drawback when calculating coins is the repetition of a card. AnkiDroid allows to undo the previous reviewed flashcard so that a user can earn additional coins in a single flashcard. However, reviewing the previous flashcard again should not be penalized. Therefore, the previously earned coins are kept. It is worth to remember that the flashcards are shown to users based on how they assess them, thus, AnkiDroid can display them repeatedly in a short period of time.
 
 %----------------------------------------------------------------------------------------
 \subsection{Rewards}
 Since coins are given after reviewing a card, they can be seen as a reward as well. However, their dynamic characteristic (they can be spent by the user), and how they are calculated reduce their potential benefits as rewards. Thus, it was necessary to implement a new element with a similar earning scheme but different characteristics. Points are a common element in games, their objective varies from context to context, but usually they provide information about progress. Other educational platforms have added points as motivational element \citep{disalvo2014khan}.
 
-Points were designed to be calculated in a similar way to coins. Similarly, there exist ranges of time to earn coins. The first range has the same objective as the one for coins, therefore, its duration is similar. A second range is meant to earn coins proportionally to the time, however, the relation is not linear but logaritmic as seen in Figure \ref{fig:points-formula}. This type of relation has two objectives, the first one is to create an additional distinction between points and games. The second goal has to do with coins. Since the content of some flashcards can require more time than usual to review, the maximum number of coins per flashcard acts as a penalization for large flashcards. Therefore, the lack of a limit for the number of points earned in a flashcard can help to reduce a potential penalization in large flashcards.
+Points were designed to be calculated in a similar way to coins. Similarly, there exist ranges of time to earn coins. The first range has the same objective as the one for coins, therefore, its duration is similar. A second range is meant to earn coins proportionally to the time, however, the relation is not linear but logaritmic as seen in Equation \ref{eq:points-formula}, where \textit{p} is the number of points and \textit{t} is time in seconds. Since logaritms are negative for values less than one, a max function between 1 and the logaritm is applied to avoid negative points. If the number of points has a decimal part, then it is rounded to the closest integer.
+
+This logaritmic relation and the lack of a limit for points have two objectives, the first one is to create an additional distinction between points and games. If the number of coins and points in a flashcard are greater than 0, it is unlikely that they are the same value. The second goal has to do with the limit for coins. Since the content of some flashcards can require more time than usual to review, the maximum number of coins per flashcard acts as a penalization for flashcards with large content. Therefore, the lack of a limit for the number of points earned in a flashcard compensates the coins penalization in large flashcards.
+
+\begin{equation}
+	p(t) =
+  		\begin{cases}
+  			0 & \text{if t $\leq$ 1}\\
+  			max(1, 10log(t)) & \text{if t $>$ 1}\\
+  		\end{cases}
+  	\label{eq:points-formula}
+\end{equation}
 
 The informative characteristic of points was also leveraged to increase the connection between AnkiDroid and the game. There are two considerations. First, using cheat tricks in the game depends on the number of coins i.e. the time spent reviewing cards. In addition, the schemes to earn points and coins is similar. Therefore, it is possible to add another modification in the game based on points. Such modifications is the availability of tricks. This means that tricks are initially blocked. Using cheat tricks requires to earn a given number of points to unblock them. Thus, using a cheat trick requires to fulfill three conditions: required number or points to unblock it, required number of coins to buy it, and no restriction as seen in Table \ref{tab:tricks}.
 
@@ -71,6 +106,16 @@ Rewards are by nature obtained after doing small tasks. Until this point, the re
 Following some game schemes, the achievements in the context of AnkiDroid were defined as ankimals (pets) that have to be rescued. Therefore, an achievement was defined as a task aimed to rescue the ankimals. Similar to cheat tricks in the game, ankimals have an specific order based on the number of required points to rescue them. However, the main difference between cheat tricks and ankimals are the notification aspect of the latter. The user has no feedback when the number of points to unblock a cheat trick has been reached.
 
 The lack of notifications for unblocked cheat tricks is due to the objective of the gamification process. The user has to be motivated to use AnkiDroid not the game. However, since ankimals were defined as achievements based on the number of earned points, it is important to inform the user when an achievement has been reached. For this reason, the design included notifications for the user to inform about the rescued ankimal. The notifications also encourage the user to earn more points, hence reviewing more flashcards, to get more achievements as seen in Figure \ref{fig:ankimals-rescue}.
+
+\begin{figure}[htb]
+    \vskip 5mm
+        \begin{center}
+            \includegraphics[scale=0.5]{./Figures/achievement_notification.png}
+            \caption{Notification shown to user when achievement is reached.}
+            \label{fig:ankimals-rescue}
+        \end{center}
+    \vskip -5mm
+\end{figure}
 
 %----------------------------------------------------------------------------------------
 \subsection{Customization}
@@ -93,7 +138,29 @@ In AnkiDroid, the main considerations to implement the game elements were relate
 It was necessary to collect data from the application to analyse it and evalute the effectiveness of the gamification strategy. Originally, AnkiDroid collects a lot of usage information which is presented to users as statistics. These data give users a perspective about their progress based on the number of flashcards review, the number of sessions, the amount of time in sessions and more. The application even forecasts the number of flashcard to be reviewed in the near future. Even though the availability of this type of information, it is not used to evaluate the strategy because it provides a general overiew of the usage from the perspective of users, and discards many details.
 
 \subsection{Types of information}
-In addition, the information collected in the original application lacks details related to the integrated game and the gamification elements. Therefore, it was necessary to collect information relevant and specific to the implemented gamification strategy. This information is generated in points where the user interacts with the application like playing the game or reviewing flashcards. There, the users do specific actions that can provide clues about their behaviours and reason about them. The collected information can be grouped into four categories as seen in Table \ref{tab:info-type}.
+The information collected in the original application also lacks details related to the integrated game and the gamification elements. Therefore, it was necessary to collect information relevant and specific to the implemented gamification strategy. This information is generated in points where the user interacts with the application like playing the game or reviewing flashcards. There, the users do specific actions that can provide clues about their behaviours and reason about them. The collected information can be grouped into four categories as seen in Table \ref{tab:info-type}.
+
+\begin{table*}[!htb]
+	\centering
+	{\renewcommand{\arraystretch}{2}
+		\begin{tabular}{|R{3cm}|R{6cm}|}
+		\hline
+		\multicolumn{1}{|>{\centering\arraybackslash}m{2cm}|}{\textbf{Type}} &
+		\multicolumn{1}{>{\centering\arraybackslash}m{6cm}|}{\textbf{Description}} \\
+		\hline
+		Common & Details of time and user.\\
+		\hline
+		Game & Details about the game.\\
+		\hline
+		Gamification & Details of game elements. \\
+		\hline
+		Anki & Details of flashcards and decks. \\
+		\hline
+		\end{tabular}
+	}
+	\caption{Types of information collected from the application}
+	\label{tab:info-type}
+\end{table*}
 
 The first type of information is categorized as common. These data are meant to identify the time, date and user that generate them; they are recorded in every relevant interaction of the user with the application. The next type of information is related to the game; it includes details about the score, cheat tricks, and state of the grid. Game information can provide insights about the effectivenes of the integration. The gamification category has to do with the added game elements to AnkiDroid, it includes details about the number of coins, number of points, and names of the ankimals. Finally, the anki category refers to details about the decks, flashcards, and revision times.
 
