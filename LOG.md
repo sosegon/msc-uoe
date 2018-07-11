@@ -1,12 +1,20 @@
 # Progress log
+## Week 09-07-2018 | 15-07-2018
+- Previous week:
+  - I wrote the chapter 4.
+
+- This week:
+  - Write chapter 5.
+  - Analize current data.
+
 ## Week 02-07-2018 | 08-07-2018
--Previous week:
+- Previous week:
   - I added a new feature for the users to spend coins.
   - I opened the application for the general public.
 
 - This week:
   - Advertise the application in the university and social networks
-  - Write ths chapters 4 and 5.
+  - Write the chapters 4 and 5.
   - Write the progress report.
 
 ## Week 25-06-2018 | 01-07-2018
