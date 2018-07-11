@@ -1,6 +1,6 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Oliver Lemon made minor edits (jan 2015)  to : 
-% Masters/Doctoral Thesis 
+% Oliver Lemon made minor edits (jan 2015)  to :
+% Masters/Doctoral Thesis
 % LaTeX Template
 % Version 1.43 (17/5/14)
 %
@@ -8,7 +8,7 @@
 % http://www.LaTeXTemplates.com
 %
 % Original authors:
-% Steven Gunn 
+% Steven Gunn
 % http://users.ecs.soton.ac.uk/srg/softwaretools/document/templates/
 % and
 % Sunil Patel
@@ -30,12 +30,18 @@
 
 \graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
 
-\usepackage[square, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers' 
+\usepackage[square, comma, sort&compress]{natbib} % Use the natbib reference package - read up on this to edit the reference style; if you want text (e.g. Smith et al., 2012) for the in-text references (instead of numbers), remove 'numbers'
 \hypersetup{urlcolor=blue, colorlinks=true} % Colors hyperlinks in blue - change to black if annoying
 
+% For size of cells in tables
+\usepackage{array}
+\newcolumntype{S}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-\title{UoE CS Masters thesis template} % BUT you should use use " \title{\ttitle} " here instead to define the thesis title ! 
-% \ttitle is defined in the file Thesis.cls 
+\DeclareMathOperator{\numbercoins}{Number\ of\ coins}
+
+\title{UoE CS Masters thesis template} % BUT you should use use " \title{\ttitle} " here instead to define the thesis title !
+% \ttitle is defined in the file Thesis.cls
 
 \begin{document}
 
@@ -71,7 +77,7 @@
 \HRule \\[0.4cm] % Horizontal line
 {\huge \bfseries \ttitle}\\[0.4cm] % Thesis title
 \HRule \\[1.5cm] % Horizontal line
- 
+
 \begin{minipage}{0.4\textwidth}
 \begin{flushleft} \large
 \emph{Author:}\\
@@ -81,19 +87,19 @@
 \begin{minipage}{0.4\textwidth}
 \begin{flushright} \large
 \emph{Supervisors:} \\
-\href{}{\supname} % Supervisor name - remove the \href bracket to remove the link  
+\href{}{\supname} % Supervisor name - remove the \href bracket to remove the link
 \end{flushright}
 \end{minipage}\\[3cm]
- 
+
 \large \textit{A thesis submitted in fulfilment of the requirements\\ for the degree of \degreename}\\[0.3cm] % University requirement text
 \textit{in the}\\[0.4cm]
 %\groupname\\
 
 \deptname\\[2cm] % Research group name and department name
- 
+
 {\large \today}\\[1cm] % Date
 \includegraphics[width=6cm]{./Figures/UoE_logo.png} % University/department logo - uncomment to place it
- 
+
 \vfill
 \end{center}
 
@@ -114,7 +120,7 @@ I, \authornames, declare that this thesis titled, '\ttitle' and the work present
   tables, programs) are properly acknowledged at any point of their
   use. A list of the references employed is included.
 
-%\begin{itemize} 
+%\begin{itemize}
 %\item[\tiny{$\blacksquare$}] This work was done wholly or mainly while in candidature for a research degree at this University.
 %\item[\tiny{$\blacksquare$}] Where any part of this thesis has previously been submitted for a degree or any other qualification at %this University or any other institution, this has been clearly stated.
 %\item[\tiny{$\blacksquare$}] Where I have consulted the published work of others, this is always clearly attributed.
@@ -122,10 +128,10 @@ I, \authornames, declare that this thesis titled, '\ttitle' and the work present
 %\item[\tiny{$\blacksquare$}] I have acknowledged all main sources of help.
 %\item[\tiny{$\blacksquare$}] Where the thesis is based on work done by myself jointly with others, I have made clear exactly what %was done by others and what I have contributed myself.\\
 %\end{itemize}
- \vspace{2cm} 
+ \vspace{2cm}
 Signed:\\
 \rule[1em]{25em}{0.5pt} % This prints a line for the signature
- 
+
 Date:\\
 \rule[1em]{25em}{0.5pt} % This prints a line to write the date
 }
@@ -164,9 +170,9 @@ Dave Barry
 
 %\abstract{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
- {\huge{\textit{Abstract}} \par}{\addtocontents{toc}{\vspace{1em}} 
+ {\huge{\textit{Abstract}} \par}{\addtocontents{toc}{\vspace{1em}}
 
-The Thesis Abstract is written here (and usually kept to just this page). 
+The Thesis Abstract is written here (and usually kept to just this page).
 %The page is kept centered vertically so can expand into the blank space above the title too\ldots
 %
 
@@ -180,7 +186,7 @@ The Thesis Abstract is written here (and usually kept to just this page).
 
 \acknowledgements{\addtocontents{toc}{\vspace{1em}} % Add a gap in the Contents, for aesthetics
 
-The acknowledgements and the people to thank go here, don't forget to include your project advisor :)  
+The acknowledgements and the people to thank go here, don't forget to include your project advisor :)
 }
 \clearpage % Start a new page
 
@@ -273,12 +279,12 @@ $\omega$ & angular frequency & rads$^{-1}$ \\
 % Uncomment the lines as you write the chapters
 
 \input{Chapters/Chapter1}
-\input{Chapters/Chapter2} 
+\input{Chapters/Chapter2}
 \input{Chapters/Chapter3}
-\input{Chapters/Chapter4} 
-\input{Chapters/Chapter5} 
-\input{Chapters/Chapter6} 
-\input{Chapters/Chapter7} 
+\input{Chapters/Chapter4}
+\input{Chapters/Chapter5}
+\input{Chapters/Chapter6}
+\input{Chapters/Chapter7}
 
 %----------------------------------------------------------------------------------------
 %	THESIS CONTENT - APPENDICES
