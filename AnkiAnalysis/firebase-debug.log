@@ -1,0 +1,77 @@
+[debug] [2018-07-12T15:24:58.949Z] ----------------------------------------------------------------------
+[debug] [2018-07-12T15:24:58.951Z] Command:       /usr/bin/node /usr/bin/firebase serve
+[debug] [2018-07-12T15:24:58.951Z] CLI Version:   3.19.3
+[debug] [2018-07-12T15:24:58.951Z] Platform:      linux
+[debug] [2018-07-12T15:24:58.951Z] Node Version:  v9.11.1
+[debug] [2018-07-12T15:24:58.951Z] Time:          Thu Jul 12 2018 16:24:58 GMT+0100 (BST)
+[debug] [2018-07-12T15:24:58.951Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-07-12T15:24:58.960Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-07-12T15:24:58.960Z] > authorizing via signed-in user
+[debug] [2018-07-12T15:24:58.962Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/ankigame2048  
+  
+ Thu Jul 12 2018 16:24:58 GMT+0100 (BST)
+[debug] [2018-07-12T15:24:59.910Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-12T15:24:59.914Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/ankigame2048/tokens  
+  
+ Thu Jul 12 2018 16:24:59 GMT+0100 (BST)
+[debug] [2018-07-12T15:25:00.608Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-12T15:25:00.612Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/ankigame2048  
+  
+ Thu Jul 12 2018 16:25:00 GMT+0100 (BST)
+[debug] [2018-07-12T15:25:01.439Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/mnt/linux_shared/shared/Documents/Universidad/dissertation/AnkiAnalysis'...
+[info] 
+[debug] [2018-07-12T15:25:01.441Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/427007683779/clients/_:getWebAppConfig  
+  
+ Thu Jul 12 2018 16:25:01 GMT+0100 (BST)
+[debug] [2018-07-12T15:25:01.963Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[debug] [2018-07-12T15:25:01.996Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/427007683779/clients/_:getWebAppConfig  
+  
+ Thu Jul 12 2018 16:25:01 GMT+0100 (BST)
+[debug] [2018-07-12T15:25:02.484Z] <<< HTTP RESPONSE 200
+[info] ✔  hosting: Local server: http://localhost:5004
+
+[debug] [2018-07-12T15:46:31.380Z] ----------------------------------------------------------------------
+[debug] [2018-07-12T15:46:31.382Z] Command:       /usr/bin/node /usr/bin/firebase serve
+[debug] [2018-07-12T15:46:31.382Z] CLI Version:   3.19.3
+[debug] [2018-07-12T15:46:31.382Z] Platform:      linux
+[debug] [2018-07-12T15:46:31.382Z] Node Version:  v9.11.1
+[debug] [2018-07-12T15:46:31.382Z] Time:          Thu Jul 12 2018 16:46:31 GMT+0100 (BST)
+[debug] [2018-07-12T15:46:31.382Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-07-12T15:46:31.390Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-07-12T15:46:31.390Z] > authorizing via signed-in user
+[debug] [2018-07-12T15:46:31.392Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/ankigame2048  
+  
+ Thu Jul 12 2018 16:46:31 GMT+0100 (BST)
+[debug] [2018-07-12T15:46:32.336Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-12T15:46:32.340Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/ankigame2048/tokens  
+  
+ Thu Jul 12 2018 16:46:32 GMT+0100 (BST)
+[debug] [2018-07-12T15:46:33.153Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-12T15:46:33.156Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/ankigame2048  
+  
+ Thu Jul 12 2018 16:46:33 GMT+0100 (BST)
+[debug] [2018-07-12T15:46:33.595Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/mnt/linux_shared/shared/Documents/Universidad/dissertation/AnkiAnalysis'...
+[info] 
+[debug] [2018-07-12T15:46:33.602Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/427007683779/clients/_:getWebAppConfig  
+  
+ Thu Jul 12 2018 16:46:33 GMT+0100 (BST)
+[debug] [2018-07-12T15:46:34.091Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5000 is not available. Trying another port...
+[debug] [2018-07-12T15:46:34.112Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/427007683779/clients/_:getWebAppConfig  
+  
+ Thu Jul 12 2018 16:46:34 GMT+0100 (BST)
+[debug] [2018-07-12T15:46:34.618Z] <<< HTTP RESPONSE 200
+[warn] ⚠  hosting: Port 5004 is not available. Trying another port...
+[debug] [2018-07-12T15:46:34.627Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/427007683779/clients/_:getWebAppConfig  
+  
+ Thu Jul 12 2018 16:46:34 GMT+0100 (BST)
+[debug] [2018-07-12T15:46:35.032Z] <<< HTTP RESPONSE 200
+[info] ✔  hosting: Local server: http://localhost:5008
+
