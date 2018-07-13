@@ -26,16 +26,47 @@ defaultDb.ref('/connection/users/').once('value', (snapshot) => {
 class Group{
 	constructor(pathToGroup){
 		this.path = pathToGroup;
-		this.n_users = 0;
+		this.users = [];
 	}
-	updateNumberOfUsers(callback) {
-		defaultDb.ref(this.path).once('value', (snapshot) => {
-			let n_users = 0;
-			snapshot.forEach((childSnapshot) => {
-				n_users++;
+	updateUsers(callback) {
+		defaultDb.ref(this.path).once('value', snapshot => {
+			let users = [];
+			snapshot.forEach(childSnapshot => {
+				users.push(childSnapshot.key);
 			});
-			this.n_users = n_users;
+			this.users = users;
 			callback(); // Async process, do something once work is done
+		});
+	}
+}
+
+class User{
+	constructor(pathToLogs, id){
+		this.path = pathToLogs;
+		this.id = id;
+		this.logs = {};
+	}
+	updateLogs(callback){
+		defaultDb.ref(this.path).once('value', logsSnapshot => {
+
+			let logs = {};
+			logsSnapshot.forEach(logTypeSnapshot => {
+
+				logs[logTypeSnapshot.key] = 0;
+				logTypeSnapshot.forEach(log => {
+
+					if(log.hasChild("userId")) {
+
+						let currentId = log.child("userId").val();
+						if(currentId === this.id) {
+
+							logs[logTypeSnapshot.key] += 1;
+						}
+					}
+				})
+			});
+			this.logs = logs;
+			callback();
 		});
 	}
 }
