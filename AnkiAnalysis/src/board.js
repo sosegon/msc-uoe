@@ -2,10 +2,10 @@ class Analysis extends React.Component {
 	render() {
 		return(
 			<div>
-				<BoardView name='AnkiGame study' path='/connection' />
-				<BoardView name='AnkiPlay study' path='/independent' />
-				<BoardView name='AnkiGame public' path='/public/connection' />
-				<BoardView name='AnkiPlay public' path='/public/independent' />
+				<BoardView name='AnkiGame study' path='connection' />
+				<BoardView name='AnkiPlay study' path='independent' />
+				<BoardView name='AnkiGame public' path='public/connection' />
+				<BoardView name='AnkiPlay public' path='public/independent' />
 			</div>
 		);
 	}
@@ -44,18 +44,14 @@ class UserView extends React.Component {
 	getLogs(){
 		this.state.user.updateLogs(() => {
 			this.setState({user: this.state.user});
-			console.log("done");
 		});
 	}
 	render(){
-		console.log(this.state.user.logs);
 		let logElems = Object.keys(this.state.user.logs).map((key, index) => {
-			console.log(key);
 			return(
 				<LogView name={key} count={this.state.user.logs[key]} />
 			);
 		});
-		console.log(logElems);
 		return(
 			<div>
 				<span onClick={this.getLogs.bind(this)}>{this.props.id}</span>
