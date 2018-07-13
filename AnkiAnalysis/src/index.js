@@ -12,10 +12,15 @@ let defaultApp = firebase.initializeApp(config);
 let defaultDb = defaultApp.database();
 
 defaultDb.ref('/connection/users/').once('value', (snapshot) => {
+	let n_users = 0;
 	snapshot.forEach((childSnapshot) => {
-		var childKey = childSnapshot.key;
-		console.log(childKey);
+		n_users++;				
 	});
+
+	let connection = document.getElementById("connection");
+	let l_users = document.createElement("span");
+	l_users.innerText = "" + n_users;
+	connection.append(l_users);	
 });
 
 console.log(defaultApp.name);
