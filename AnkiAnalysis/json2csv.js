@@ -32,32 +32,32 @@ function retrieveUsers(path, properties) {
 }
 
 function retrieveLogs(path, properties) {
-	let objectsJson = anki;
-	let pathBranches = path.split("/");
-	for (let i = 0; i < pathBranches.length; i++) {
-		objectsJson = objectsJson[pathBranches[i]];
-	}
+	let file_name = "data/"
+	.concat(path.replace(/\//g, "_"))
+	.concat(".csv");
 
-	let file_name = "data/" + path.replace(/\//g, "_") + ".csv";
 	fs.writeFile(file_name, '', err => {
 		if(err) throw err;
 	});
 	let out = fs.createWriteStream(file_name, {flags: 'a'});
 
+	let objectsJson = path
+	.split("/")
+	.reduce((obj, branch) => {
+		return obj[branch];
+	}, anki);
+
 	Object.keys(objectsJson).map(key => {
 		let currentLogType = objectsJson[key];
 		Object.keys(currentLogType).map(key2 => {
-			let currentLog = currentLogType[key2]
-			let stringCsv = key2 + ",";
-			for(const prop of properties){
-				stringCsv += getProperty(currentLog, prop) + ",";
-			}
-			stringCsv = stringCsv.slice(0, -1);
-			stringCsv += "\n";
-			out.write(stringCsv, 'utf-8');
-			// fs.appendFile(file_name, stringCsv, err => {
-			// 	if(err) throw err;
-			// });
+			let currentLog = currentLogType[key2];
+			let csv = properties.reduce((str, prop) => {
+				return str.concat(getProperty(currentLog, prop)).concat(",");
+			}, key2.concat(","))
+			.slice(0, -1)
+			.concat("\n");
+
+			out.write(csv, 'utf8');
 		});
 	});
 }
