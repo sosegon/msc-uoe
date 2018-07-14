@@ -4,30 +4,30 @@ let anki = require("./ankigame2048-export.json");
 let fs = require('fs');
 
 function retrieveUsers(path, properties) {
-	let objectsJson = anki;
-	let pathBranches = path.split("/");
-	for (let i = 0; i < pathBranches.length; i++) {
-		objectsJson = objectsJson[pathBranches[i]];
-	}
+	let file_name = "data/"
+	.concat(path.replace(/\//g, "_"))
+	.concat(".csv");
 
-	let file_name = "data/" + path.replace(/\//g, "_") + ".csv";
 	fs.writeFile(file_name, '', err => {
 		if(err) throw err;
 	});
 	let out = fs.createWriteStream(file_name, {flags: 'a'});
 
-	Object.keys(objectsJson).map(function (key) {
+	let objectsJson = path
+	.split("/")
+	.reduce((obj, branch) => {
+		return obj[branch];
+	}, anki);
+
+	Object.keys(objectsJson).map(key => {
 		let currentUser = objectsJson[key];
-		let stringCsv = key + ",";
-		for(const prop of properties){
-			stringCsv += getProperty(currentUser, prop) + ",";
-		}
-		stringCsv = stringCsv.slice(0, -1);
-		stringCsv += "\n";
-		out.write(stringCsv, 'utf-8');
-		fs.appendFile(file_name, stringCsv, err => {
-			if(err) throw err;
-		});
+		let csv = properties.reduce((str, prop) => {
+			return str.concat(getProperty(currentUser, prop)).concat(",");
+		}, key.concat(","))
+		.slice(0, -1)
+		.concat("\n");
+
+		out.write(csv, 'utf8');
 	});
 }
 
