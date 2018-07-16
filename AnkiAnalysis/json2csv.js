@@ -8,7 +8,13 @@ function retrieveUsers(path, properties) {
 	.concat(path.replace(/\//g, "_"))
 	.concat(".csv");
 
-	fs.writeFile(file_name, '', err => {
+	let header = properties.reduce((str, prop) => {
+		return str.concat(prop).concat(",");
+	}, "id".concat(","))
+	.slice(0, -1)
+	.concat("\n");
+
+	fs.writeFile(file_name, header, err => {
 		if(err) throw err;
 	});
 	let out = fs.createWriteStream(file_name, {flags: 'a'});
@@ -36,7 +42,13 @@ function retrieveLogs(path, properties) {
 	.concat(path.replace(/\//g, "_"))
 	.concat(".csv");
 
-	fs.writeFile(file_name, '', err => {
+	let header = properties.reduce((str, prop) => {
+		return str.concat(prop).concat(",");
+	}, "id".concat(","))
+	.slice(0, -1)
+	.concat("\n");
+
+	fs.writeFile(file_name, header, err => {
 		if(err) throw err;
 	});
 	let out = fs.createWriteStream(file_name, {flags: 'a'});
