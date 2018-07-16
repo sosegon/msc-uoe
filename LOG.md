@@ -1,4 +1,13 @@
 # Progress log
+## Week 16-07-2018 | 22-07-2018
+- Previous week:
+  - I wrote chapter 5.
+  - I created the script to compile data into csv format
+- This week:
+  - Contact participants to fill survey.
+  - Analyze the data
+  - Write chapters 6, 7 and 2.
+
 ## Week 09-07-2018 | 15-07-2018
 - Previous week:
   - I wrote the chapter 4.
