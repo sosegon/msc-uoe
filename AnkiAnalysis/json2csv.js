@@ -76,12 +76,15 @@ function retrieveLogs(path, properties) {
 
 function getProperty(jsonObject, property) {
 	if(jsonObject.hasOwnProperty(property)) {
+		if(property === "logs") {
+			return Object.keys(jsonObject[property]).length;
+		}
 		return jsonObject[property];
 	}
 	return "";
 }
 
-let userProperties = ["nickName", "points", "bestScore", "date", "time"];
+let userProperties = ["logs", "nickName", "points", "bestScore", "date", "time"];
 retrieveUsers("connection/users", userProperties);
 retrieveUsers("independent/users", userProperties);
 retrieveUsers("public/connection/users", userProperties);
