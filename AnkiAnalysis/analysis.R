@@ -78,35 +78,63 @@ plot(i_ease_hist,col="blue",density=10,angle=45,add=TRUE)
 # Compare the variation of reviewed cards over the period study 
 # in both groups
 ####################################################################
-# Group the logs by user, type and date
-c_logs_by_user <- group_by(c_logs, userId, logType, date)
-dplyr::summarize(c_logs_by_user, count=n()) %>%
-  filter(logType == 'assessCard') %>%
-  ggplot(aes(x=date, y=count)) +
-  geom_point() +
-  ggtitle("Participants in experimental group") +
-  labs(x = "Period of study", y = "Number of reviewed cards") +
-  facet_wrap(~userId) +
-  xlim(as.Date(c('2018/06/18', '2018/07/16'), format="%Y/%m/%d") ) +
-  theme(
-    strip.background = element_blank(),
-    strip.text.x = element_blank()
-  )
+logs_in_period <- function(logs, log_type, title) {
+  # Group the logs by user, type and date
+  logs_by_user <- group_by(logs, userId, logType, date)
+  dplyr::summarize(logs_by_user, count=n()) %>%
+    filter(logType == log_type) %>%
+    ggplot(aes(x=date, y=count)) +
+    geom_point() +
+    ggtitle(title) +
+    labs(x = "Period of study", y = "Number of reviewed cards") +
+    facet_wrap(~userId) +
+    xlim(as.Date(c('2018/06/18', '2018/07/16'), format="%Y/%m/%d") ) +
+    theme(
+      strip.background = element_blank(),
+      strip.text.x = element_blank()
+    )
+}
+logs_in_period(c_logs, 'assessCard', 'Experimental group')
+logs_in_period(i_logs, 'assessCard', 'Control group')
 
-i_logs_by_user <- group_by(i_logs, userId, logType, date)
-dplyr::summarize(i_logs_by_user, count=n()) %>%
-  filter(logType == 'assessCard') %>%
-  ggplot(aes(x=date, y=count)) +
-  geom_point() +
-  ggtitle("Participants in control group") +
-  labs(x = "Period of study", y = "Number of reviewed cards") +
-  facet_wrap(userId) + 
-  xlim(as.Date(c('2018/06/18', '2018/07/16'), format="%Y/%m/%d") ) +
-  theme(
-    strip.background = element_blank(),
-    strip.text.x = element_blank()
-  )
+####################################################################
+# Compare the variation of checking leaderboard over the period study 
+# in both groups
+####################################################################
+logs_in_period(c_logs, 'checkLeaderboard', 'Experimental group')
+logs_in_period(i_logs, 'checkLeaderboard', 'Control group')
 
+####################################################################
+# Compare the checking the leaderboard and reviewing cards
+####################################################################
+logs_in_period2 <- function(logs, log_type1, log_type2, title) {
+  # Group the logs by user, type and date
+  logs_by_user <- group_by(logs, userId, logType, date)
+  dplyr::summarize(logs_by_user, count=n()) %>%
+    filter(logType == log_type1 | logType == log_type2) %>%
+    ggplot(aes(x=date, y=count, col=logType)) +
+    geom_point() +
+    ggtitle(title) +
+    labs(x = "Period of study", y = "Number of reviewed cards", color='Interaction') +
+    facet_wrap(~userId) +
+    xlim(as.Date(c('2018/06/18', '2018/07/16'), format="%Y/%m/%d") ) +
+    theme(
+      strip.background = element_blank(),
+      strip.text.x = element_blank()
+    )
+}
+logs_in_period2(c_logs, 'assessCard', 'checkLeaderboard', 'Experimental group')
+logs_in_period2(i_logs, 'assessCard', 'checkLeaderboard', 'Control group')
+
+####################################################################
+# Compare the playing the game and reviewing cards
+####################################################################
+logs_in_period2(c_logs, 'assessCard', 'goToGame', 'Experimental group')
+
+####################################################################
+# Compare the fail trick and reviewing cards
+####################################################################
+logs_in_period2(c_logs, 'assessCard', 'failTrick', 'Experimental group')
 
 cp_users = read.csv("data/public_connection_users.csv") %>% 
   filter(logs > 0)
