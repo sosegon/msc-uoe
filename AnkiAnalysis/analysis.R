@@ -9,7 +9,7 @@ library(ggplot2)
 ####################################################################
 c_users = read.csv("data/connection_users.csv") %>% 
   filter((date != '' | grepl('lena55', nickName)) &
-           !grepl('anse23', nickName)) %>%
+           (!grepl('anse23', nickName) & !grepl('player730', nickName))) %>%
   filter(logs > 5)
 
 i_users = read.csv("data/independent_users.csv") %>% 
