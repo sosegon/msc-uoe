@@ -7,12 +7,17 @@ library(ggplot2)
 ####################################################################
 # Get users and filter the valid only
 ####################################################################
-c_users = read.csv("data/connection_users.csv") %>% 
+c_users_path <- "data/connection_users.csv"
+i_users_path <- "data/independent_users.csv"
+c_logs_path <- "data/connection_logs.csv"
+i_logs_path <- "data/independent_logs.csv"
+
+c_users = read.csv(c_users_path) %>% 
   filter((date != '' | grepl('lena55', nickName)) &
            (!grepl('anse23', nickName) & !grepl('player730', nickName))) %>%
   filter(logs > 5)
 
-i_users = read.csv("data/independent_users.csv") %>% 
+i_users = read.csv(i_users_path) %>% 
   filter(date != '' & !grepl('Mike', nickName)) %>%
   filter(logs > 0)
 
@@ -30,13 +35,13 @@ get_logs <- function(path, users) {
   
   # Filter by period of study
  logs <- logs %>%
-   filter(date >= "2018/06/18" & date <= "2018/07/16")
+   filter(date >= "2018/06/18" & date <= "2018/07/15")
   
   return (logs)
 }
 
-c_logs = get_logs("data/connection_logs.csv", c_users)
-i_logs = get_logs("data/independent_logs.csv", i_users)
+c_logs = get_logs(c_logs_path, c_users)
+i_logs = get_logs(i_logs_path, i_users)
 
 ####################################################################
 # Compare the number of earned coins in both groups
@@ -81,15 +86,14 @@ plot(i_ease_hist,col="blue",density=10,angle=45,add=TRUE)
 # Compare the variation of reviewed cards over the period study 
 # in both groups
 ####################################################################
-logs_in_period <- function(logs, log_type, title) {
+all_logs_in_period <- function(logs, title) {
   # Group the logs by user, type and date
-  logs_by_user <- group_by(logs, userId, logType, date)
+  logs_by_user <- group_by(logs, userId, date)
   dplyr::summarize(logs_by_user, count=n()) %>%
-    filter(logType == log_type) %>%
     ggplot(aes(x=date, y=count)) +
     geom_point() +
     ggtitle(title) +
-    labs(x = "Period of study", y = "Number of reviewed cards") +
+    labs(x = "Period of study", y = "Number of interactions") +
     facet_wrap(~userId) +
     xlim(as.Date(c('2018/06/18', '2018/07/16'), format="%Y/%m/%d") ) +
     theme(
@@ -97,50 +101,131 @@ logs_in_period <- function(logs, log_type, title) {
       strip.text.x = element_blank()
     )
 }
-logs_in_period(c_logs, 'assessCard', 'Experimental group')
-logs_in_period(i_logs, 'assessCard', 'Control group')
+logs_in_period <- function(logs, log_types, log_aliases, title) {
+  # Group the logs by user, type and date
+  logs_by_user <- group_by(logs, userId, logType, date)
+  dplyr::summarize(logs_by_user, count=n()) %>%
+    filter(logType %in% log_types) %>%
+    ggplot(aes(x=date, y=count, col=logType)) +
+    geom_point() +
+    scale_colour_discrete(name = "Interactions", labels = log_aliases) +
+    ggtitle(title) +
+    labs(x = "Period of study", y = "Number of interactions") +
+    facet_wrap(~userId) +
+    xlim(as.Date(c('2018/06/18', '2018/07/16'), format="%Y/%m/%d") ) +
+    theme(
+      strip.background = element_blank(),
+      strip.text.x = element_blank()
+    )
+}
+logs_in_period(c_logs, c('assessCard'), c('Review card'), 'Experimental group')
+logs_in_period(i_logs, c('assessCard'), c('Review card'), 'Control group')
 
 ####################################################################
 # Compare the variation of checking leaderboard over the period study 
 # in both groups
 ####################################################################
-logs_in_period(c_logs, 'checkLeaderboard', 'Experimental group')
-logs_in_period(i_logs, 'checkLeaderboard', 'Control group')
+logs_in_period(c_logs, c('checkLeaderboard'), c('Check leaderboard'), 'Experimental group')
+logs_in_period(i_logs, c('checkLeaderboard'), c('Check leaderboard'), 'Control group')
 
 ####################################################################
 # Compare the checking the leaderboard and reviewing cards
 ####################################################################
-logs_in_period2 <- function(logs, log_type1, log_type2, title) {
-  # Group the logs by user, type and date
-  logs_by_user <- group_by(logs, userId, logType, date)
-  dplyr::summarize(logs_by_user, count=n()) %>%
-    filter(logType == log_type1 | logType == log_type2) %>%
-    ggplot(aes(x=date, y=count, col=logType)) +
-    geom_point() +
-    ggtitle(title) +
-    labs(x = "Period of study", y = "Number of reviewed cards", color='Interaction') +
-    facet_wrap(~userId) +
-    xlim(as.Date(c('2018/06/18', '2018/07/16'), format="%Y/%m/%d") ) +
-    theme(
-      strip.background = element_blank(),
-      strip.text.x = element_blank()
-    )
+logs_in_period(c_logs, c('assessCard', 'checkLeaderboard'), c('Review card', 'Check leaderboard'), 'Experimental group')
+logs_in_period(i_logs, c('assessCard', 'checkLeaderboard'), c('Review card', 'Check leaderboard'), 'Control group')
+
+####################################################################
+# Compare the playing the game and studying
+####################################################################
+logs_in_period(c_logs, c('goToGame', 'selectDeck'), c('Play', 'Review cards'), 'Experimental group')
+logs_in_period(i_logs, c('selectDeck'), c('Review cards'), 'Control group')
+
+####################################################################
+# Compare all interactions in period
+####################################################################
+all_logs_in_period(c_logs, 'Experimental group')
+all_logs_in_period(i_logs, 'Control group')
+
+####################################################################
+# Compare the average interactions
+####################################################################
+summ_logs_in_period <- function(logs) {
+  ################################################################
+  # Average number of interactions per user
+  ################################################################
+  logs_by_user <- group_by(logs, userId)
+  summ <- dplyr::summarize(logs_by_user, count= n())
+  r_ints <- as.integer(mean(summ$count))
+  
+  ################################################################
+  # Average number of days per user
+  ################################################################
+  logs_by_user <- group_by(logs, userId, date)
+  summ <- dplyr::summarize(logs_by_user, count= n())
+  r_days <- as.integer(mean(count(summ)$n))
+  
+  ################################################################
+  # Average interactions per day per user
+  ################################################################
+  logs_by_user <- group_by(logs, userId, date)
+  summ <- dplyr::summarize(logs_by_user, count= n())
+  days <- count(summ)
+  interactions <- aggregate(summ$count, by=list(Category=summ$userId), FUN=sum)
+  r_int_days <- as.integer(mean(interactions$x /days$n))
+  return(c(r_ints, r_days, r_int_days))
 }
-logs_in_period2(c_logs, 'assessCard', 'checkLeaderboard', 'Experimental group')
-logs_in_period2(i_logs, 'assessCard', 'checkLeaderboard', 'Control group')
+
+summ_logs_in_period(i_logs)
+summ_logs_in_period(c_logs)
+
+summ_logs_in_period(i_logs %>% filter(logType=='assessCard'))
+summ_logs_in_period(c_logs %>% filter(logType=='assessCard'))
+
+summ_logs_in_period(i_logs %>% filter(logType=='selectDeck'))
+summ_logs_in_period(c_logs %>% filter(logType=='selectDeck'))
 
 ####################################################################
-# Compare the playing the game and reviewing cards
+# Compile data for users
 ####################################################################
-logs_in_period2(c_logs, 'assessCard', 'goToGame', 'Experimental group')
 
-####################################################################
-# Compare the fail trick and reviewing cards
-####################################################################
-logs_in_period2(c_logs, 'assessCard', 'failTrick', 'Experimental group')
+per_user <- function(logs) {
+  # interactions
+  a <- group_by(logs, userId) %>%
+    dplyr::summarize(interactions=n())
+  
+  # days using the app
+  b <- group_by(logs, userId, date) %>%
+    dplyr::summarize(days=n()) %>%
+    count(userId) %>%
+    summarize(days = n)
+  
+  # days between first and last use
+  c <- group_by(logs, userId, date) %>%
+    dplyr::summarize(count=n())
+  d <- setNames(aggregate(c$date, by=list(c$userId), min), c("userId", "minDate"))
+  e <- setNames(aggregate(c$date, by=list(c$userId), max), c("userId", "maxDate"))
+  f <- merge(d, e) %>%
+    group_by(userId) %>%
+    summarize(period = maxDate - minDate + 1)
+  
+  # interactions per day
+  g <- merge(a,b) %>%
+    group_by(userId) %>%
+    summarize(interactions_day = round(interactions / days))
+  
+  # average days between sessions
+  h <- merge(b, f) %>%
+    group_by(userId) %>%
+    summarize(days_between_sessions = period / days)
+  
+  # merge everything
+  i <- merge(a, b) %>%
+    merge(g) %>%
+    merge(f) %>%
+    merge(h)
+  
+  return(i)
+}
 
-cp_users = read.csv("data/public_connection_users.csv") %>% 
-  filter(logs > 0)
-
-ip_users = read.csv("data/public_independent_users.csv")%>%
-  filter(logs > 0)
+per_user(c_logs)
+per_user(i_logs)
