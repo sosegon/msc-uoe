@@ -1,11 +1,14 @@
+#install.packages("plyr")
 #install.packages("dplyr")
+#install.packages("ggplot2")
 library(plyr)
 library(dplyr)
+library(ggplot2)
 ####################################################################
 # Get users and filter the valid only
 ####################################################################
 c_users = read.csv("data/connection_users.csv") %>% 
-  filter((date != ''  | grepl('lena55', nickName)) &
+  filter((date != '' | grepl('lena55', nickName)) &
            !grepl('anse23', nickName)) %>%
   filter(logs > 5)
 
