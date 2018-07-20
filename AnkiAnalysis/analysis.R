@@ -14,7 +14,7 @@ i_logs_path <- "data/independent_logs.csv"
 
 c_users = read.csv(c_users_path) %>% 
   filter((date != '' | grepl('lena55', nickName)) &
-           (!grepl('anse23', nickName) & !grepl('player730', nickName))) %>%
+           (!grepl('anse23', nickName) & !grepl('player730', nickName) & !grepl('player993', nickName))) %>%
   filter(logs > 5)
 
 i_users = read.csv(i_users_path) %>% 
@@ -206,8 +206,8 @@ per_user <- function(logs) {
   e <- setNames(aggregate(c$date, by=list(c$userId), max), c("userId", "maxDate"))
   f <- merge(d, e) %>%
     group_by(userId) %>%
-    summarize(period = maxDate - minDate + 1)
-  
+    summarize(period = as.numeric(maxDate - minDate + 1, units='days'))
+    
   # interactions per day
   g <- merge(a,b) %>%
     group_by(userId) %>%
@@ -224,8 +224,11 @@ per_user <- function(logs) {
     merge(f) %>%
     merge(h)
   
-  return(i)
+  return(i[order(i$interactions, decreasing=TRUE),])
 }
 
-per_user(c_logs)
-per_user(i_logs)
+per_user(c_logs) %>%
+  summarise_if(is.numeric, mean)
+
+per_user(i_logs) %>%
+  summarise_if(is.numeric, mean)
