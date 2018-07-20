@@ -43,6 +43,19 @@ function retrieveLogs(path, properties) {
 	.concat(".csv");
 
 	let header = properties.reduce((str, prop) => {
+		if(prop === "deckInfo") {
+			return str + "deckName" + "," +
+			"newTodayDay" + "," +
+			"newTodayCount" + "," +
+			"revTodayDay" + "," +
+			"revTodayCount" + "," +
+			"lrnTodayDay" + "," +
+			"lrnTodayCount" + "," +
+			"timeTodayDay" + "," +
+			"timeTodayCount" + "," +
+			"extendNew" + "," +
+			"extendRev" + ","
+		}
 		return str.concat(prop).concat(",");
 	}, "id".concat(","))
 	.slice(0, -1)
@@ -69,20 +82,49 @@ function retrieveLogs(path, properties) {
 			.slice(0, -1)
 			.concat("\n");
 
+			if(csv.split(",").length != 27) {
+				console.log(csv);
+				console.log("invalid line");
+			}
+
 			out.write(csv, 'utf8');
 		});
 	});
 }
 
 function getProperty(jsonObject, property) {
+	let noDeck = ",,,,,,,,,,";
 	if(jsonObject.hasOwnProperty(property)) {
 		if(property === "logs") {
 			return Object.keys(jsonObject[property]).length;
 		}
-		// replace commas to avoid conflict with csv format
+
+		if(property === "deckInfo") {
+			let val = jsonObject[property].replace(/\[/g, "").replace(/\]/g, "");
+			let elems = val.split(",");
+			if(elems.length == 11)
+				return val;
+			else if(elems.length < 11) {
+				return val + ",,";
+			}
+			else if(elems.length > 11) {
+				return elems.reverse().reduce((s, e, i) => {
+					if(i === 0)
+						return e;
+					else if(i > 0 && i < 11)
+						return e + "," + s;
+					else
+						return e + "|" + s;
+
+				}, "");
+			}
+		}
+
 		let val = jsonObject[property] + "";
-		return val.replace(/,/g, "|");
+		return val.replace(/\,/g, "|"); // remove commas
 	}
+	if(property === "deckInfo")
+		return noDeck;
 	return "";
 }
 
@@ -96,7 +138,7 @@ retrieveUsers("public/independent/users", userProperties);
 // "deckInfo", "dueDeckInfo", "earnedCoins", "earnedPoints", "elapsedTime",
 // "favCard", "isFavCard", "logType", "pointsInCard", "totalCoins", "totalPoints",
 // "userId", "date", "time"];
-let logProperties = ["cardEase", "cardInfo", "coinsInCard", "deckInfo", "dueDeckInfo",
+let logProperties = ["cardEase", "cardInfo", "coinsInCard", "deckInfo",
 "earnedCoins", "earnedPoints", "elapsedTime",
 "favCard", "isFavCard", "logType", "pointsInCard", "totalCoins", "totalPoints",
 "userId", "date", "time"];
