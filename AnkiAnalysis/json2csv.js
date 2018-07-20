@@ -79,7 +79,9 @@ function getProperty(jsonObject, property) {
 		if(property === "logs") {
 			return Object.keys(jsonObject[property]).length;
 		}
-		return jsonObject[property];
+		// replace commas to avoid conflict with csv format
+		let val = jsonObject[property] + "";
+		return val.replace(/,/g, "|");
 	}
 	return "";
 }
@@ -94,7 +96,8 @@ retrieveUsers("public/independent/users", userProperties);
 // "deckInfo", "dueDeckInfo", "earnedCoins", "earnedPoints", "elapsedTime",
 // "favCard", "isFavCard", "logType", "pointsInCard", "totalCoins", "totalPoints",
 // "userId", "date", "time"];
-let logProperties = ["cardEase", "coinsInCard","earnedCoins", "earnedPoints", "elapsedTime",
+let logProperties = ["cardEase", "cardInfo", "coinsInCard", "deckInfo", "dueDeckInfo",
+"earnedCoins", "earnedPoints", "elapsedTime",
 "favCard", "isFavCard", "logType", "pointsInCard", "totalCoins", "totalPoints",
 "userId", "date", "time"];
 retrieveLogs("connection/logs", logProperties);
