@@ -218,17 +218,55 @@ per_user <- function(logs) {
     group_by(userId) %>%
     summarize(days_between_sessions = period / days)
   
+  # number of decks 
+  j <- group_by(logs, userId, deckName) %>%
+    dplyr::summarize(decks=n()) %>%
+    count(userId) %>%
+    summarize(decks = n)
+  
+  # average elapsed time in card
+  k <- group_by(logs, userId, logType, elapsedTime) %>%
+    filter(logType=='assessCard')
+  l <- setNames(aggregate(k$elapsedTime, by=list(k$userId), FUN=mean), c("userId", "meanElapsedTime"))
+  
+  # earned points and coins
+  m <- group_by(logs, userId)
+  n <- aggregate(coinsInCard~userId, m, sum)
+  o <- aggregate(pointsInCard~userId, m, sum)
+  
+  # remaining coins
+  p <- group_by(logs, userId)
+  q <- aggregate(totalCoins~userId, p, max)
+  
+  r <- merge(n, q) %>%
+    group_by(userId) %>%
+    summarize(spentCoins = coinsInCard - totalCoins + 10) # initial value
+    
+  
   # merge everything
   i <- merge(a, b) %>%
     merge(g) %>%
     merge(f) %>%
-    merge(h)
+    merge(h) %>%
+    merge(j) %>%
+    merge(l,  all = TRUE) %>%
+    merge(n, all = TRUE) %>%
+    merge(o, all = TRUE) %>%
+    merge(q, all = TRUE) %>%
+    merge(r, all = TRUE)
+  
+  i[is.na(i)] <- 0
   
   return(i[order(i$interactions, decreasing=TRUE),])
 }
 
-per_user(c_logs) %>%
-  summarise_if(is.numeric, mean)
+c_users_logs <- per_user(c_logs)
+i_users_logs <- per_user(i_logs)
+c_users_logs
+i_users_logs
 
-per_user(i_logs) %>%
-  summarise_if(is.numeric, mean)
+c_users_logs  %>%
+  summarise_if(is.numeric, funs(median, mean))
+
+i_users_logs  %>%
+  summarise_if(is.numeric, funs(median, mean))
