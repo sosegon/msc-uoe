@@ -242,6 +242,10 @@ per_user <- function(logs) {
     group_by(userId) %>%
     summarize(spentCoins = coinsInCard - totalCoins + 10) # initial value
     
+  # Total cards
+  s <- group_by(logs, userId) %>%
+    filter(logType == 'assessCard') %>%
+    summarize(totalCards=n())
   
   # merge everything
   i <- merge(a, b) %>%
@@ -253,7 +257,8 @@ per_user <- function(logs) {
     merge(n, all = TRUE) %>%
     merge(o, all = TRUE) %>%
     merge(q, all = TRUE) %>%
-    merge(r, all = TRUE)
+    merge(r, all = TRUE) %>%
+    merge(s, all = TRUE)
   
   i[is.na(i)] <- 0
   
