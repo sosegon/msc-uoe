@@ -36,10 +36,14 @@
 % Merge cells in table
 \usepackage{multirow}
 
+% For quotes
+\usepackage{csquotes}
+
 % For size of cells in tables
 \usepackage{array}
 \newcolumntype{S}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
-\newcolumntype{R}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{1pt}}m{#1}}
+% \newcolumntype{R}[1]{>{\centering\arraybackslash\hspace{1pt}}p{#1}}
 
 \DeclareMathOperator{\numbercoins}{Number\ of\ coins}
 
