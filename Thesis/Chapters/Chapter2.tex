@@ -6,7 +6,7 @@
 
 \lhead{Chapter 2. \emph{
 Background}} % This is for the header on each page - perhaps a shortened title
-The present work relied on two important concepts: gamification and spaced repetition. An overview of both concepts sets the stage for the proposed solution. Gamification provides an alternative to improve user experience, whereas spaced repetition offers a way to ease the retention of new knowledge. Among the several alternatives that implement spaced repetition, Anki and its mobile interface, AnkiDroid, provide a general purpose approach with a large user base. In addition, casual games offer characteristics that make them adaptable to non-leisure contexts including learning. Finally, the popularity of the 2048 game \citep{uberspot2017game} has turned it into a subject of several studies.
+The present work relied on two important concepts: gamification and spaced repetition. An overview of both concepts sets the stage for the proposed solution. Gamification provides an alternative to improve user experience, whereas spaced repetition offers a way to ease the retention of new knowledge. Among the several alternatives that implement spaced repetition, Anki and its mobile interface, AnkiDroid, provide a general purpose approach with a large user base. In addition, casual games offer characteristics that make them adaptable to non-leisure contexts including learning. One example is the 2048 game \citep{uberspot2017game} that has been subject of several studies. Finally, statistical testings allow to make inferences about the outcome of an experiment.
 
 %----------------------------------------------------------------------------------------
 \section{Gamification}
@@ -31,7 +31,7 @@ In addtion, AnkiDroid has an large community of members that collaborate, suppor
 \begin{figure}[htb]
     \vskip 5mm
         \begin{center}
-            \includegraphics[scale=0.4]{./Figures/anki_progress.jpg}
+            \includegraphics[scale=0.4]{./Figures/anki_progress.png}
             \caption{Evolution of the number of installations of AnkiDroid. Image taken from the twitter account of AnkiDroid (https://twitter.com/AnkiDroid)}
             \label{fig:anki-evolution}
         \end{center}
@@ -41,7 +41,7 @@ In addtion, AnkiDroid has an large community of members that collaborate, suppor
 
 %----------------------------------------------------------------------------------------
 \section{Casual Video Games}
-Casual video games, or casual games for short, are a category of digital games. The Casual Games Association (CGA) provides a definition based on the characteristics that a game needs to have to be considered casual. A casual game has to be fun, it needs to provide a quick way to access, and the gameplay must be easy to understand. These characteristics mean that users do not require any previous expertise or skills related to video games. For these reasons, casual games have a broad audience that includes people from all age groups.
+A casual game has to be fun, it needs to provide a quick way to access, and the gameplay must be easy to understand, as defined by the Casual Games Association (CGA). These characteristics mean that users do not require any previous expertise or skills related to video games. For these reasons, casual games have a broad audience that includes people from all age groups.
 
 The characteristics of this type of games have been leverage to adapt them to non-leisure contexts including health and learning. In the health context, the use of casual games has been studied as an alternative element to improve mood and decrease stress \citep{russoniello2009effectiveness}. Additional studies have demonstrated the effectiveness of playing casual games as a recovery strategy after periods of high work strain \citep{reinecke2009games}. Finally, casual games have also been studied as an alternative to traditional educational tools \citep{peirce2010personalised}
 
@@ -60,6 +60,15 @@ The characteristics of this type of games have been leverage to adapt them to no
 \end{figure}
 
 The popularity of the game has turned it into a subject of different types of studies. The majority of these studies aim to analyse the game from the computational complexity perspective \citep{abdelkader20162048}, and propose several artificial intelligence alternatives to win the game including neural networks \citep{boris2016evolving} and Monte-Carlo methods \citep{rodgers2014investigation}. However, the game has also been studied as an educational element to engage student interest \citep{neller2015pedagogical}
+
+%----------------------------------------------------------------------------------------
+\section{Statistical testing}
+\label{stat-testing}
+Statistical testing provides a way to make inferences about the data and tell if the observed pattern is real or due to chance. In research, this type of analysis helps to determine the effects of a treatment on the outcome and the robustness of that relationship. In comparative studies, a new treatment is applied to units in the experimental group, whereas units in the control group receive the standard treatment or not treatment at all.
+
+The outcomes from the control and experimental groups can be described and compared by their means. The difference between both means gives some insights about the groups. However, the difference of means needs to be complimented with the variances of the samples to determine if it is statistically significant. This analysis can be done using the Student's t-test.
+
+The Student's t-test is a method that can be used to do a statistical hyphotesis testing. The method provides a parameter called t-value that is the ratio bewteen a signal (difference of means) and noise (variability of samples). This parameter and the degrees of freedom (number of values that are free to vary) are used to find the probability value of having the same mean difference in additional experiments. Therefore, the probability value is used to confirm or deny the null hypothesis.
 
 % % Add to description of game
 %  the state of the grid is defined by the positions of the blocks and their values at a given turn

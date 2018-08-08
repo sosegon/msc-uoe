@@ -10,8 +10,8 @@ The inclusion of gamification schemes and elements in AnkiDroid required an anal
 \begin{figure}[htb]
     \vskip 5mm
         \begin{center}
-            \includegraphics[scale=0.4]{./Figures/design.png}
-            \caption{High level view of the design components and their relations.}
+            \includegraphics[scale=0.3]{./Figures/design.png}
+            \caption{High level view of the design components and their relationships.}
             \label{fig:game-elem-cards}
         \end{center}
     \vskip -5mm
@@ -72,11 +72,11 @@ Given that coins were also resources, users could be tempted to obtain them with
     \label{eq:coins-formula}
 \end{equation}
 
-Equation \ref{eq:coins-formula} describes the calculation of coins, where \textit{c} is the number of coins and \textit{t} is time in seconds. The number of coins was always an integer value. It is important to note that there were minimum and maximum numbers of coins that could be earned in each flashcard, 0 and 6 (3 for the question and 3 for the answer) respectively. A potential drawback when calculating coins was the repetition of a flashcard since AnkiDroid allows undoing the previously reviewed flashcard. Therefore users could earn additional coins for the same flashcard. However, reviewing a previous flashcard again was not penalized and the previously earned coins were kept.
+Equation \ref{eq:coins-formula} describes the calculation of coins, where \textit{c} is the number of coins as a function of the elapsed time in seconds, \textit{t}. The number of coins was always an integer value. It is important to note that there were minimum and maximum numbers of coins that could be earned in each flashcard, 0 and 6 (3 for the question and 3 for the answer) respectively. A potential drawback when calculating coins was the repetition of a flashcard since AnkiDroid allows undoing the previously reviewed flashcard. Therefore users could earn additional coins for the same flashcard. However, reviewing a previous flashcard again was not penalized and the previously earned coins were kept.
 
 Coins could be spent by users to get benefits that will be explained later. This dynamic characteristic and how they were calculated could potentially reduce their potential benefits as rewards. Thus, it was necessary to implement a new element with a similar earning scheme but additional characteristics. Points are common elements in games, their objective varies from context to context, but usually, they are used as additional rewards and provide information about progress since they are accumulative. Other educational platforms have added points as motivational element \citep{disalvo2014khan}.
 
-Points were designed to be calculated in a similar way to coins. There existed ranges of time to earn coins. The first range had the same objective as the one for coins, therefore, its duration was similar. A second range was meant to earn coins proportionally to the time, however, the relation is not linear but logarithmic as seen in Equation \ref{eq:points-formula}, where \textit{p} is the number of points and \textit{t} is the time in seconds. Since logarithms are negative for values less than one, a max function between 1 and the logarithm was applied to avoid negative points. Finally, the number of coins was always an integer value.
+Points were designed to be calculated in a similar way to coins. There existed ranges of time to earn coins. The first range had the same objective as the one for coins, therefore, its duration was similar. A second range was meant to earn coins proportionally to the time, however, the relation is not linear but logarithmic as seen in Equation \ref{eq:points-formula}, where \textit{p} is the number of points as a function of the elapsed time in seconds, \textit{t}. Since logarithms are negative for values less than one, a max function between 1 and the logarithm was applied to avoid negative points. Finally, the number of coins was always an integer value.
 
 The logarithmic relation and the lack of a limit for points had two objectives. First, the creation of an additional distinction between points and coins. If the number of coins and points in a flashcard were greater than 0, it was unlikely that they were the same value. The second goal had to do with the limit for coins. Since the content of some flashcards could require more time than usual to review, the maximum number of coins per flashcard acted as a penalization for flashcards with large content. Therefore, the lack of a limit for the number of points earned in a flashcard compensated the coins penalization in large flashcards.
 
@@ -100,7 +100,7 @@ In addition, to give Ankidroid a more game-like mood, achievements were depicted
 \begin{figure}[htb]
     \vskip 5mm
         \begin{center}
-            \includegraphics[scale=0.5]{./Figures/achievement_notification.png}
+            \includegraphics[scale=0.35]{./Figures/achievement_notification.png}
             \caption{Notification shown to user when achievement is reached.}
             \label{fig:ankimals-rescue}
         \end{center}
@@ -109,7 +109,7 @@ In addition, to give Ankidroid a more game-like mood, achievements were depicted
 
 %----------------------------------------------------------------------------------------
 \subsection{Customization}
-Games provide customization aspects to give a more personal experience to players. In the solution, this scheme was defined with two elements. The first one was a nickname that could be set by the user. This element was meant to give a higher sense of participation within the application. The second aspect of a more personal experience was an avatar. It was meant to provide a visual representation of a player which helped to create a sense of individuality. Both elements aimed to create a sense of identity, but they differed in levels of customization and constraints.
+Games provide customization aspects to give a more personal experience to players. In the solution, this scheme was defined with two elements. The first one was a nickname that could be set by the user. This element was meant to give a higher sense of participation within the application. The second aspect of a more personal experience was an avatar. It was meant to provide a visual representation of a player which helped to create a sense of individuality. Both elements aimed at creating a sense of identity, but they differed in levels of customization and constraints.
 
 Nicknames were quite customizable and flexible, the only restriction was the maximum number of characters (12). Users were able to set their nicknames at any point. On the opposite, avatars were limited to some images, and users required to get a number of points and icons. Unlike some games and applications where users can use any image to set an avatar, the application allowed users to choose one of the rescued ankimals. Moreover, since coins were defined as resources, users needed to spend a number of them to set ankimals as their avatars as seen in Figure \ref{fig:ankimals-select}. An additional level of customization permitted users to color ankimals since they were originally depicted in grayscale.
 
@@ -127,7 +127,7 @@ Nicknames were quite customizable and flexible, the only restriction was the max
 \subsection{Social and competition}
 The informative nature of points was also used to integrate another common element of games: leader-board. In the solution, the leader-board had two objectives. First, it provided a social context to the users. Thus, they knew that there were other people using the application. The social context was boosted with the inclusion of nicknames and avatars as seen in Figure \ref{fig:leaderboard}. That meant users could have a broader context of their identities within the application. Not only they were able to define their nicknames and avatars, the leader-board provided a way to see others'.
 
-The second objective of the leader-board was aimed to add a new level of motivation for the revision of flashcards. Since positions in the leader-board depended on the number of points, users needed to review more flashcards to increase the number of points, hence, improve their positions. In addition, the positions were depicted as chess pieces which could be interpreted as achievements. However, unlike rescuing ankimals, reaching a position in the leaderboard was not definitive. A position in the leaderboard could be lost against other users.
+The second objective of the leader-board was aimed at adding a new level of motivation for the revision of flashcards. Since positions in the leader-board depended on the number of points, users needed to review more flashcards to increase the number of points, hence, improve their positions. In addition, the positions were depicted as chess pieces which could be interpreted as achievements. However, unlike rescuing ankimals, reaching a position in the leaderboard was not definitive. A position in the leaderboard could be lost against other users.
 
 \begin{figure}[htb]
     \vskip 5mm
@@ -170,13 +170,13 @@ Additionally, a list of elements was also added in the deck picker to show the r
 \label{game-integration}
 The most important design decision in the solution was the inclusion of a game. The integration of a game was the key difference with other gamification approaches. Unlike the previously described elements that added new features to existing functionalities, a game was a completely new component in the application. Therefore, it was required that the game was easy to play and avoided an unnecessary level of complexity. For this reason, a casual game was the most suitable option. Casual games are straightforward and their gameplays allow short periods of play which convert them into activities that can be executed during work or study breaks.
 
-The game needed to be integrated into AnkiDroid in a way that it fitted in the structure easily. Moreover, the integration required the definition of a linkage between the game other components of the application. These conditions set the scenario to modify the game and use the previously described gamification elements. The final design set the game as a component with some flexibility to use and smoothly connected to the rest of the application. However, the design also included some constraints aimed to increase the user engagement of flashcards revision.
+The game needed to be integrated into AnkiDroid in a way that it fitted in the structure easily. Moreover, the integration required the definition of a linkage between the game other components of the application. These conditions set the scenario to modify the game and use the previously described gamification elements. The final design set the game as a component with some flexibility to use and smoothly connected to the rest of the application. However, the design also included some constraints aimed at increasing the user engagement of flashcards revision.
 
 %----------------------------------------------------------------------------------------
-\subsection{Modifications of the game}
+\subsection{Modifications to the game}
 2048 is a simple yet challenging game due to the high number of turns to form the block 2048 (1024 turns in the perfect case). Another aspect that increases the difficulty of the game is the limited space. If there are no more empty cells in the grid, and no further movements are possible, then the game is over. Such difficulty along with the need to connect the game with the rest of the application set the starting point to modify the game. Such modifications had to be consistent with the easy-to-use paradigm of casual games. Moreover, they needed to maintain a consistency such their behaviour and results were easy to understand.
 
-Based on the requirements to modify the game, a set of elements were defined to ease the gameplay. Those elements took the form of cheat tricks aimed to provide more alternatives to win. Each trick changed the state of the grid so that players had more options in a next move. The state of the grid was defined by the positions of the blocks and their values at a given turn. Therefore, there existed several approaches to change the state of the board. Moreover, each trick needed to provide a different degree of benefit, thus, they were not equally valuable. The modifications included four cheat tricks as seen in Table \ref{tab:tricks}. It is important to note the restrictions to use them based on the state of the grid.
+Based on the requirements to modify the game, a set of elements were defined to ease the gameplay. Those elements took the form of cheat tricks aimed at providing more alternatives to win. Each trick changed the state of the grid so that players had more options in a next move. The state of the grid was defined by the positions of the blocks and their values at a given turn. Therefore, there existed several approaches to change the state of the board. Moreover, each trick needed to provide a different degree of benefit, thus, they were not equally valuable. The modifications included four cheat tricks as seen in Table \ref{tab:tricks}. It is important to note the restrictions to use them based on the state of the grid.
 
 \begin{table*}[!htb]
   \centering

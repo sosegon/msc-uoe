@@ -1,11 +1,11 @@
 % Chapter 5
 
-\chapter{Results and Evaluation} % Main chapter title
+\chapter{Evaluation and Results} % Main chapter title
 
 \label{resu} % For referencing the chapter elsewhere, use \ref{Chapter1}
 
-\lhead{Chapter 6. \emph{Results and Evaluation}} % This is for the header on each page - perhaps a shortened title
-The data collected from the study was processed and compiled to extract information aimed to evaluate the effectiveness of the integration of a casual game as part of the gamification strategy. The evaluation was done in terms of user engagement, which required the definition of some metrics. These metrics provided insights into the behavior of users in every group. Then, a hypothesis testing showed that the user engagement did not present a statistical significance variation between the control and experimental groups.
+\lhead{Chapter 6. \emph{Evaluation and Results}} % This is for the header on each page - perhaps a shortened title
+The data collected from the study was processed and compiled to extract information aimed at evaluating the effectiveness of the integration of a casual game as part of the gamification strategy. The evaluation was done in terms of user engagement, which required the definition of some metrics. These metrics provided insights into the behavior of users in every group. Then, a hypothesis testing showed that the user engagement did not present a statistical significance variation between the control and experimental groups.
 
 %----------------------------------------------------------------------------------------
 \section{User engagement metrics}
@@ -84,7 +84,7 @@ Other important metrics obtained from the compiled logs including the number of 
 \begin{figure}[htb]
     \vskip 5mm
         \begin{center}
-            \includegraphics[scale=0.7]{./Figures/con_n_flashcards.png}
+            \includegraphics[scale=0.45]{./Figures/con_n_flashcards.png}
             \caption{Number of reviewed flashcards per user in the control group}
             \label{fig:cards-control}
         \end{center}
@@ -94,7 +94,7 @@ Other important metrics obtained from the compiled logs including the number of 
 \begin{figure}[htb]
     \vskip 5mm
         \begin{center}
-            \includegraphics[scale=0.7]{./Figures/exp_n_flashcards.png}
+            \includegraphics[scale=0.45]{./Figures/exp_n_flashcards.png}
             \caption{Number of reviewed flashcards per user in the experimental group}
             \label{fig:cards-experimental}
         \end{center}
@@ -103,13 +103,21 @@ Other important metrics obtained from the compiled logs including the number of 
 
 %----------------------------------------------------------------------------------------
 \section{Hypothesis testing}
-The proposed solution was designed to implement a gamification strategy that integrated a casual game. The objective was to provide users an additional extrinsic motivation element aimed to increase user engagement. In other words, the goal of the project was the integration of a casual game as part of the gamification strategy to increase user engagement. Specifically, the hypothesis for the study was formulated as follows:
+The proposed solution was designed to implement a gamification strategy that integrated a casual game. The objective was to provide users another extrinsic motivational element aimed at increasing user engagement. In other words, the goal of the project was the integration of a casual game as part of the gamification strategy to increase user engagement. Specifically, the hypothesis for the study was formulated as follows:
 
 \begin{displayquote}
 \textbf{User engagement is higher in the experimental group than in the control group.}
 \end{displayquote}
 
-The hypothesis was tested using the Student's t-test analysis over the defined user engagement metrics, the results are shown in Table \ref{tab:t_test}. As seen, there is no statistically significant difference in any of the metrics. Therefore, the hypothesis could not be proved, meaning that it was not possible to conclude that user engagement was affected by the integration of a casual game in a gamification strategy. Similar results were obtained from the data collected from users of a broader audience as seen in Table \ref{tab:t_test_broader}.
+The hypothesis was tested using the Student's t-test analysis over the defined user engagement metrics. This required to defined the null hypothesis as follows:
+
+\begin{displayquote}
+\textbf{User engagement is similar in the experimental group and control groups.}
+\end{displayquote}
+
+stat-testing
+
+The results of the t-test are shown in Table \ref{tab:t_test}. As seen, the majority of mean absolute values are larger in the experimental group. However, the p-values are not significantly small, which means that the null hypothesis could not be rejected. Moreover, the intervals of confidence at 95\% confirm that the results are not statistically significant, as seen in Figure \ref{fig:metrics}. Therefore, the difference of the means for every metric were due to chance. Thus, it was not possible to conclude that user engagement was affected by the integration of a casual game in a gamification strategy. Similar results were obtained from the data collected from users of a broader audience as seen in Table \ref{tab:t_test_broader}.
 
 \begin{table*}[!htb]
     \centering
@@ -168,3 +176,13 @@ The hypothesis was tested using the Student's t-test analysis over the defined u
     \caption{t-test values for user engagement metrics in the broader audience. AP stands for AnkiPlay, AG stands for AnkiGame}
     \label{tab:t_test_broader}
 \end{table*}
+
+\begin{figure}[htb]
+    \vskip 5mm
+        \begin{center}
+            \includegraphics[scale=0.75]{./Figures/metrics.png}
+            \caption{Means and intervals of confidence at 95\% for every metric.}
+            \label{fig:metrics}
+        \end{center}
+    \vskip -5mm
+\end{figure}
