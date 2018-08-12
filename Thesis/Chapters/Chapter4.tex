@@ -19,7 +19,7 @@ The inclusion of game schemes and elements in AnkiDroid required an analysis of 
 
 
 %----------------------------------------------------------------------------------------
-\section{Components of interest in AnkiDroid}
+\section{Components of Interest in AnkiDroid}
 \label{desi-components-interest}
 AnkiDroid is a mature application with a clear structure and well-defined logic. It has a user interface that follows the best design principles for mobile development. Despite its multiple features and functionalities, the core element is the flashcard reviewer. Here is where the application allows the users to benefit from the effects of spaced repetition. The available interactions to review flashcards permit the user to progress by checking the front of a flashcard (question), revealing its back (answer), and assessing it, which automatically leads to a new flashcard as seen in Figure \ref{fig:front-back-assess}.
 
@@ -48,7 +48,7 @@ Many other secondary components are developed around the revision of flashcards,
 The visual and logic characteristics of the flashcard reviewer and the deck picker were used to facilitate the inclusion of game elements and schemes. Visually, both elements present a structure that allows a smooth incorporation of new elements that do not interfere with their main purpose. In regard to logic, the deck picker allows getting access to new components of the application. On the other hand, the flashcard reviewer has a flow of events that can be linked to additional actions, which could provide instant feedback to users.
 
 %----------------------------------------------------------------------------------------
-\section{Initial gamification strategy}
+\section{Initial Gamification Strategy}
 \label{desi-gamification-strategy}
 The process started with the definition of a model of extrinsic motivation based on rewards \citep{richter2015studying}. The basic tangible component of this model had the form of points, which were tied to the revision of flashcards. The approach was extended to include coins as an additional reward element that complemented the role of points. Points and coins presented characteristics that allowed them to be used beyond the reward model. However, coins differed from points on how they could vary in number and the way users could use them.
 
@@ -124,7 +124,7 @@ Nicknames were quite customisable and flexible. The only restriction was the max
 \end{figure}
 
 %----------------------------------------------------------------------------------------
-\subsection{Social and competition}
+\subsection{Social and Competition}
 The informative nature of points was also used to integrate another common element of games: leaderboard. In the solution, the leadearboard had two objectives. First, it provided a social context to the users. Thus, they knew that there were other people using the application. The social context was boosted with the inclusion of nicknames and avatars as seen in Figure \ref{fig:leaderboard}. That meant users could have a broader context of their identities within the application. Not only were they able to define their nicknames and avatars, but the leadearboard also provided a way to see others'.
 
 The second objective of the leadearboard was aimed at adding a new level of motivation for the revision of flashcards. Since positions in the leadearboard depended on the number of points, users needed to review more flashcards to increase the number of points, hence, improve their positions. In addition, the positions were depicted as chess pieces, which could be interpreted as achievements. However, unlike rescuing ankimals, reaching a position in the leadearboard was not definitive. A position in the leaderboard could be lost against other users.
@@ -166,14 +166,14 @@ Additionally, a list of elements was also added in the deck picker to show the r
 \end{figure}
 
 %----------------------------------------------------------------------------------------
-\section{Game integration}
+\section{Game Integration}
 \label{game-integration}
 The most important design decision in the solution was the inclusion of a game. The integration of a game was the key difference with other gamification approaches. Unlike the previously described elements that added new features to existing functionalities, a game was a completely new component in the application. Therefore, it was required that the game be easy to play and avoided an unnecessary level of complexity. For this reason, a casual game was the most suitable option. Casual games are straightforward and their gameplays allow short periods of play, which convert them into activities that can be executed during work or study breaks.
 
 The game needed to be integrated into AnkiDroid in a way that it fitted in the structure easily. Moreover, the integration required the definition of a linkage between the game and other components of the application. These conditions set the scenario to modify the game and use the previously described gamification elements. The final design set the game as a component with some flexibility to use and smoothly connected to the rest of the application. However, the design also included some constraints aimed at increasing the user engagement of flashcards revision.
 
 %----------------------------------------------------------------------------------------
-\subsection{Modifications to the game}
+\subsection{Modifications to the Game}
 2048 is a simple yet challenging game due to the high number of turns to form the block 2048 (1024 turns in the perfect case). Another aspect that increases the difficulty of the game is the limited space. If there are no more empty cells in the grid, and no further movements are possible, then the game is over. Such difficulty along with the need to connect the game with the rest of the application set the starting point to modify the game. Such modifications had to be consistent with the easy-to-use paradigm of casual games. Moreover, they needed to maintain a consistency such that their behaviour and results were easy to understand.
 
 Based on the requirements to modify the game, a set of elements was defined to ease the gameplay. Those elements took the form of cheat tricks aimed at providing more alternatives to win. Each trick changed the state of the grid so that players had more options in a next move. The state of the grid was defined by the positions of the blocks and their values at a given turn. Therefore, there existed several approaches to change the state of the board. Moreover, each trick needed to provide a different degree of benefit; thus, they were not equally valuable. The modifications included four cheat tricks as seen in Table \ref{tab:tricks}. It is important to note the restrictions to use them based on the state of the grid.
@@ -202,7 +202,7 @@ Based on the requirements to modify the game, a set of elements was defined to e
 \end{table*}
 
 %----------------------------------------------------------------------------------------
-\subsection{Connection with flashcards revision}
+\subsection{Connection with Flashcards Revision}
 A connection meant finding existing elements in AnkiDroid that could act as the glue material between the game and the revision of flashcards. In other words, the connection had to be done to include a motivational aspect to encourage users to review more flashcards to obtain benefits in the game. Thus, the user engagement could increase by adopting elements from AnkiDroid to the logic and structure of the game. The original application did not present elements that could be easily adjusted to the game. However, two of the gamification elements defined earlier provided a way to make the connection.
 
 The first elements were points, which already provided a motivational aspect in the revision of flashcards. The informative nature of points was previously used to define achievements in the revision of flashcards. Following the same scheme, they were also used to define achievements in the game. In this case, the cheat tricks in the game were linked to a specific number of points based on the benefits they provided; the higher the benefit, the higher the number of points. Therefore, the tricks were initially hidden, then, users needed to obtain the corresponding number of points to reveal each trick. Finally, unlike ankimals, users were not notified when a trick was revealed since the main interest was the revision of flashcards, not playing the game.
@@ -234,7 +234,7 @@ The number of available tricks was small (4), and revealing each of them was a o
 \end{table*}
 
 %----------------------------------------------------------------------------------------
-\section{User interface considerations}
+\section{User Interface Considerations}
 Several user interface aspects were considered to implement the game elements described earlier. First, the modifications in the game required the addition of interactive elements for each cheat trick. Initially, colour information was used to differentiate the cheat tricks and to provide clues about their status (blocked, enabled, usable)  as seen in Figure \ref{fig:modified-game}. Moreover, since the gameplay required the users to slide vertically and horizontally, cheat tricks could easily be selected by mistake. Avoiding that problem required designing a translucent curtain to be removed by the user before selecting cheat tricks.
 
 \begin{figure}[htb]
