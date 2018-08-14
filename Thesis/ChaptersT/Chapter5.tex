@@ -41,7 +41,7 @@ Quantitative data were generated in points where users interacted with the appli
 
 The common category was meant to identify the time, date, and user that generated the interaction. This type of data was part of every relevant interaction in the application. The next category of information was related to the game; it included details about the score, cheat tricks, and state of the grid. The gamification category had to do with the added game elements to AnkiDroid. It included details about the number of coins, number of points, and names of the ankimals. Finally, the Anki category referred to details about the decks, flashcards, and revision times.
 
-The categories of information were stored in the form of logs. Logs were a scheme to assemble and structure information from different categories based on the relevant interactions generated in the application. Logs were grouped into two main classes: game logs and Anki logs. Games logs contained information from the game category; however, some data from the gamification category was also registered in these logs. Anki logs contained information from Anki category with some data from the gamification category. Information about common category was recorded in both groups of logs as seen in Figure \ref{fig:categories-logs}.
+The categories of information were stored in the form of logs. Logs were a scheme to assemble and structure information from different categories based on the relevant interactions generated in the application. Logs were grouped into two main classes: game logs and Anki logs. Game logs contained information from the game category; however, some data from the gamification category was also registered in these logs. Anki logs contained information from Anki category with some data from the gamification category. Information about common category was recorded in both groups of logs as seen in Figure \ref{fig:categories-logs}.
 
 \begin{figure}[htb]
     \vskip 5mm
@@ -53,7 +53,7 @@ The categories of information were stored in the form of logs. Logs were a schem
     \vskip -5mm
 \end{figure}
 
-Specifically speaking, there were 6 types of game logs and 9 types of Anki logs as shown in Table \ref{tab:log-types}. Game logs were generated in the game context. Something similar occurred with Anki logs; however, the design of the solution allowed one Anki log to be generated in the game context: Check leaderboard. This was possible because users could open the leadearboard either in the game context or in the Anki context. The reason for this design is that the leaderboard provided information about the social aspect. Despite the fact that the leaderboard displayed gamification data (points), users were not asked to do a specific action in Anki or the game contexts to see their positions.
+Specifically speaking, there were 6 types of game logs and 9 types of Anki logs as shown in Table \ref{tab:log-types}. Game logs were generated in the game context. Something similar occurred with Anki logs; however, the design of the solution allowed one Anki log to be generated in the game context: Leaderboard checked. This was possible because users could open the leaderboard either in the game context or in the Anki context. The reason for this design is that the leaderboard provided information about the social aspect. Despite the fact that the leaderboard displayed gamification data (points), users were not asked to do a specific action in Anki or the game contexts to see their positions.
 
 \begin{table*}[!htb]
     \centering

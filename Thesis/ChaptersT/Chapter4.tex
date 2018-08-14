@@ -50,7 +50,7 @@ The visual and logic characteristics of the flashcard reviewer and the deck pick
 %----------------------------------------------------------------------------------------
 \section{Initial Gamification Strategy}
 \label{desi-gamification-strategy}
-The process started with the definition of a model of extrinsic motivation based on rewards \citep{richter2015studying}. The basic tangible component of this model had the form of points, which were tied to the revision of flashcards. The approach was extended to include coins as an additional reward element that complemented the role of points. Points and coins presented characteristics that allowed them to be used beyond the reward model. However, coins differed from points on how they could vary in number and the way users could use them.
+The process started with the definition of a model of extrinsic motivation based on rewards \citep{richter2015studying}. The basic tangible component of this model had the form of coins, which were tied to the revision of flashcards. The approach was extended to include points as an additional reward element that complemented the role of coins. Coins and points presented characteristics that allowed them to be used beyond the reward model. However, coins differed from points on how they could vary in number and the way users could use them.
 
 The model of motivation was extended to include more advanced game elements built upon the basic rewards. It incorporated a set of achievements that was defined based on the number of points. The achievements were also set to provide a more game-like mood to the overall user experience. Later, a customisation scheme made use of the characteristics of points to link them to achievements. Points along with customisation were also used to define a social and competition scheme. Additional elements were defined to keep users informed about their progress.
 
@@ -76,7 +76,7 @@ Equation \ref{eq:coins-formula} describes the calculation of coins, where \texti
 
 Coins could be spent by users to get benefits that will be explained later. This dynamic characteristic and how they were calculated could potentially reduce their potential benefits as rewards. Thus, it was necessary to implement a new element with a similar earning scheme but additional characteristics. Points are common elements in games. Their objective varies from context to context, but usually, they are used as additional rewards and provide information about progress since they are accumulative. Other educational platforms have added points as a motivational element \citep{disalvo2014khan}.
 
-Points were designed to be calculated in a similar way to coins. There existed ranges of time to earn coins. The first range had the same objective as the one for coins, so, its duration was similar. A second range was meant to earn coins proportionally to the time; however, the relation is not linear but logarithmic as seen in Equation \ref{eq:points-formula}, where \textit{p} is the number of points as a function of the elapsed time in seconds, \textit{t}. Since logarithms are negative for values less than one, a max function between 1 and the logarithm was applied to avoid negative points. Finally, the number of coins was always an integer.
+Points were designed to be calculated in a similar way to coins. There existed ranges of time to earn coins. The first range had the same objective as the one for coins, so, its duration was similar. A second range was meant to earn coins proportionally to the time; however, the relation is not linear but logarithmic as seen in Equation \ref{eq:points-formula}, where \textit{p} is the number of points as a function of the elapsed time in seconds, \textit{t}. Since logarithms are negative for values less than one, a max function between 1 and the logarithm was applied to avoid negative points. Finally, the number of points was always an integer.
 
 The logarithmic relation and the lack of a limit for points had two objectives. First, the creation of an additional distinction between points and coins. If the number of coins and points in a flashcard were greater than 0, it was unlikely that they were the same value. The second goal had to do with the limit for coins. Since the content of some flashcards could require more time than usual to review, the maximum number of coins per flashcard acted as a penalisation for flashcards with large content. Therefore, the lack of a limit for the number of points earned in a flashcard compensated for the coins penalisation in large flashcards.
 
@@ -101,7 +101,7 @@ In addition, to give AnkiDroid a more game-like mood, achievements were depicted
     \vskip 5mm
         \begin{center}
             \includegraphics[scale=0.35]{./Figures/achievement_notification.png}
-            \caption{Notification shown to user when achievement is reached.}
+            \caption{Notification shown to user when an achievement is reached.}
             \label{fig:ankimals-rescue}
         \end{center}
     \vskip -5mm
@@ -117,7 +117,7 @@ Nicknames were quite customisable and flexible. The only restriction was the max
     \vskip 5mm
         \begin{center}
             \includegraphics[scale=0.4]{./Figures/ankimal_selection.png}
-            \caption{Dialog to select and color a rescued ankimal.}
+            \caption{Dialog to select and colour a rescued ankimal.}
             \label{fig:ankimals-select}
         \end{center}
     \vskip -5mm
@@ -125,15 +125,15 @@ Nicknames were quite customisable and flexible. The only restriction was the max
 
 %----------------------------------------------------------------------------------------
 \subsection{Social and Competition}
-The informative nature of points was also used to integrate another common element of games: leaderboard. In the solution, the leadearboard had two objectives. First, it provided a social context to the users. Thus, they knew that there were other people using the application. The social context was boosted with the inclusion of nicknames and avatars as seen in Figure \ref{fig:leaderboard}. That meant users could have a broader context of their identities within the application. Not only were they able to define their nicknames and avatars, but the leadearboard also provided a way to see others'.
+The informative nature of points was also used to integrate another common element of games: leaderboard. In the solution, the leaderboard had two objectives. First, it provided a social context to the users. Thus, they knew that there were other people using the application. The social context was boosted with the inclusion of nicknames and avatars as seen in Figure \ref{fig:leaderboard}. That meant users could have a broader context of their identities within the application. Not only were they able to define their nicknames and avatars, but the leaderboard also provided a way to see others'.
 
-The second objective of the leadearboard was aimed at adding a new level of motivation for the revision of flashcards. Since positions in the leadearboard depended on the number of points, users needed to review more flashcards to increase the number of points, hence, improve their positions. In addition, the positions were depicted as chess pieces, which could be interpreted as achievements. However, unlike rescuing ankimals, reaching a position in the leadearboard was not definitive. A position in the leaderboard could be lost against other users.
+The second objective of the leaderboard was aimed at adding a new level of motivation for the revision of flashcards. Since positions in the leaderboard depended on the number of points, users needed to review more flashcards to increase the number of points, hence, improve their positions. In addition, the positions were depicted as chess pieces, which could be interpreted as achievements. However, unlike rescuing ankimals, reaching a position in the leaderboard was not definitive. A position in the leaderboard could be lost against other users.
 
 \begin{figure}[htb]
     \vskip 5mm
         \begin{center}
             \includegraphics[scale=0.4]{./Figures/leaderboard.png}
-            \caption{leadearboard showing the nicknames and avatars of users.}
+            \caption{Leaderboard showing the nicknames and avatars of users.}
             \label{fig:leaderboard}
         \end{center}
     \vskip -5mm
@@ -235,7 +235,7 @@ The number of available tricks was small (4), and revealing each of them was a o
 
 %----------------------------------------------------------------------------------------
 \section{User Interface Considerations}
-Several user interface aspects were considered to implement the game elements described earlier. First, the modifications in the game required the addition of interactive elements for each cheat trick. Initially, colour information was used to differentiate the cheat tricks and to provide clues about their status (blocked, enabled, usable)  as seen in Figure \ref{fig:modified-game}. Moreover, since the gameplay required the users to slide vertically and horizontally, cheat tricks could easily be selected by mistake. Avoiding that problem required designing a translucent curtain to be removed by the user before selecting cheat tricks.
+Several user interface aspects were considered to implement the game elements described earlier. First, the modifications in the game required the addition of interactive elements for each cheat trick. Initially, opacity information was used to differentiate the cheat tricks and to provide clues about their status (blocked, enabled, usable)  as seen in Figure \ref{fig:modified-game}. Moreover, since the gameplay required the users to slide vertically and horizontally, cheat tricks could easily be selected by mistake. Avoiding that problem required designing a translucent curtain to be removed by the user before selecting cheat tricks.
 
 \begin{figure}[htb]
     \vskip 5mm
